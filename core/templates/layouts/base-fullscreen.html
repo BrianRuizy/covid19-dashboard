@@ -1,0 +1,83 @@
+<!--
+
+=========================================================
+* Argon Dashboard - v1.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+* Copyright 2019 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md)
+
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Static assets - Used to load the Favicon -->
+{% load static %}
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>
+    Django Dashboard Argon - {% block title %} Open-Source Admin Panel {% endblock %} | AppSeed
+  </title>
+
+  <!-- Favicon - loaded as static -->
+  <link href="{% static 'assets/img/brand/favicon.png' %}" rel="icon" type="image/png">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="/static/assets/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="/static/assets/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link href="/static/assets/css/argon-dashboard.css?v=1.1.0" rel="stylesheet" />
+
+  <!-- Specific CSS goes HERE -->
+  {% block stylesheets %}{% endblock stylesheets %}
+
+</head>
+
+<body class="bg-default">
+
+  <div class="main-content">
+
+    {% include "includes/navigation-fullscreen.html" %}
+
+    <!-- Header -->
+    <div class="header bg-gradient-primary py-7 py-lg-8">
+      <div class="container">
+        <div class="header-body text-center mb-7">
+          <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+              <h1 class="text-white">Django Dashboard Argon</h1>
+              <p class="text-lead text-light">
+                UI-Ready open-source admin panel enhanced with database and authentication - Coded by AppSeed.  
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+    
+    {% block content %}{% endblock content %}
+
+    {% include "includes/footer-fullscreen.html" %}
+
+  </div>
+    
+  {% include "includes/scripts-fullscreen.html" %}
+
+</body>
+
+</html>
