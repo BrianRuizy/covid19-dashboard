@@ -53,7 +53,7 @@ $ # Access the web app in browser: http://127.0.0.1:8000/
 
 ## Credits & Links
 
-- [Django Dashboard Argon](https://www.youtube.com/watch?v=bGGDGltRT_g) - yTube presentation
+- [Django Dashboard Argon](https://www.youtube.com/watch?v=RJkCTn55ywo) - yTube presentation
 - [Django Framework](https://www.djangoproject.com/) - Offcial website
 - [Django Admin Dashboards](https://appseed.us/admin-dashboards/django) - Open-source and paid admin panels coded in **Django**
 
