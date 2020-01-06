@@ -1,4 +1,4 @@
-# [Django Dashboard Argon](https://www.youtube.com/watch?v=bGGDGltRT_g)
+# [Django Dashboard Argon](https://appseed.us/admin-dashboards/django-dashboard-argon)
 
 **Open-Source Admin Panel** coded in **Django Framework** on top of **Argon Dashboard** design. **Features**:
 
@@ -55,6 +55,7 @@ $ # Access the web app in browser: http://127.0.0.1:8000/
 
 - [Django Dashboard Argon](https://www.youtube.com/watch?v=bGGDGltRT_g) - yTube presentation
 - [Django Framework](https://www.djangoproject.com/) - Offcial website
+- [Django Admin Dashboards](https://appseed.us/admin-dashboards/django) - Open-source and paid admin panels coded in **Django**
 
 <br />
 
@@ -65,4 +66,4 @@ $ # Access the web app in browser: http://127.0.0.1:8000/
 <br />
 
 ---
-[Django Dashboard Argon](https://www.youtube.com/watch?v=bGGDGltRT_g) - provided by **AppSeed**
+[Django Dashboard Argon](https://appseed.us/admin-dashboards/django-dashboard-argon) - provided by **AppSeed**
