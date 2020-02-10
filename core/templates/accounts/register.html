@@ -30,67 +30,82 @@
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
 
-                <small>{{ msg }}</small>
+                {% if msg %}
+                  <small>{{ msg }}</small>
+                {% else %}
+                  Add your credentials or <a href={% url 'login' %} >authenticate</a> with an existing account.
+                {% endif %}  
               
               </div>
-              
-              <form method="POST">
-                {% csrf_token %}
-          
-                <div class="form-group">
-                  <div class="input-group input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    {{ form.username }}
-                  </div>
-                </div>
-                <span class="text-error">{{ form.username.errors }}</span>
 
-                <div class="form-group">
-                  <div class="input-group input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                    </div>
-                    {{ form.email }}
-                  </div>
-                </div>
-                <span class="text-error">{{ form.email.errors }}</span>
+              {% if success %}
 
-                <div class="form-group">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    {{ form.password1 }}
-                  </div>
-                </div>
-                <span class="text-error">{{ form.password1.errors }}</span>
+                <p class="text-center">
+                  Please <a href={% url 'login' %} class="text-black text-small">authenticate</a> using the new account.
+                </p>  
 
-                <div class="form-group">
-                  <div class="input-group input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    {{ form.password2 }}
-                  </div>
-                </div>
-                <span class="text-error">{{ form.password2.errors }}</span>
+              {% else %}
 
-                <div class="row my-4">
-                  <div class="col-12">
-                    <div class="custom-control custom-control-alternative custom-checkbox">
-                      <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                      <label class="custom-control-label" for="customCheckRegister">
-                        <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
-                      </label>
+                <form method="POST">
+                  {% csrf_token %}
+            
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                      </div>
+                      {{ form.username }}
                     </div>
                   </div>
-                </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary mt-4">Create account</button>
-                </div>
-              </form>
+                  <span class="text-error">{{ form.username.errors }}</span>
+
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      </div>
+                      {{ form.email }}
+                    </div>
+                  </div>
+                  <span class="text-error">{{ form.email.errors }}</span>
+
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      </div>
+                      {{ form.password1 }}
+                    </div>
+                  </div>
+                  <span class="text-error">{{ form.password1.errors }}</span>
+
+                  <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      </div>
+                      {{ form.password2 }}
+                    </div>
+                  </div>
+                  <span class="text-error">{{ form.password2.errors }}</span>
+
+                  <div class="row my-4">
+                    <div class="col-12">
+                      <div class="custom-control custom-control-alternative custom-checkbox">
+                        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                        <label class="custom-control-label" for="customCheckRegister">
+                          <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-4">Create account</button>
+                  </div>
+                </form>
+
+              {% endif %}  
+  
             </div>
           </div>
 

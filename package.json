@@ -1,7 +1,7 @@
 {
   "name": "django-dashboard-argon",
-  "version": "1.0.0",
-  "description": "A simple UI-Ready  Django boilerplate.",
+  "version": "1.0.1",
+  "description": "A simple UI-Ready Django boilerplate.",
   "scripts": {
     "lint": "eslint ."
   },
