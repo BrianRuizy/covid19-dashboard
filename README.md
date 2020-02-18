@@ -20,7 +20,8 @@
 ### Web App Links
 
 - [Django Dashboard Argon](https://appseed.us/admin-dashboards/django-dashboard-argon) - product page 
-- [Django Dashboard Argon](https://django-dashboard-argon.herokuapp.com/) - LIVE Demo
+- [Django Dashboard Argon](https://django-dashboard-argon.appseed.us/login/) - LIVE Demo
+- [Django Dashboard Argon](https://www.youtube.com/watch?v=RJkCTn55ywo) - yTube presentation
 
 <br />
 
@@ -183,7 +184,6 @@ Visit `http://localhost:8001` in your browser. The app should be up & running.
 
 ## Credits
 
-- [Django Dashboard Argon](https://www.youtube.com/watch?v=RJkCTn55ywo) - yTube presentation
 - [Django Framework](https://www.djangoproject.com/) - Offcial website
 - [Django Admin Dashboards](https://appseed.us/admin-dashboards/django) - Open-source and paid admin panels coded in **Django**
 
