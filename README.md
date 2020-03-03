@@ -8,16 +8,17 @@
 > presented with pneumonia of no clear cause. [1. Wiki](https://en.wikipedia.org/wiki/2019%E2%80%9320_Wuhan_coronavirus_outbreak)
 
 ## Setup
-![](https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/setup.png)
 
-<br />
+<h1 align="center">
+    <img alt="setup" src="https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/setup.png">
+</h1>
 
 ## Deployment
 
 The app is provided with a basic configuration to be executed in [Heroku](https://heroku.com/).
-
-### [Heroku](https://heroku.com/) platform
-![](https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/deploy.png)
+<h1 align="center">
+    <img alt="deploy" src="https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/deploy.png"
+</h1>
 
 ## Attribution
 
