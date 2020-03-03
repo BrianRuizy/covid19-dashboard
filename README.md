@@ -9,6 +9,7 @@
 
 ## Setup
 
+Clone this repo, and create your virtual environment, there you will install the requisite package dependencies. 
 <h1 align="left">
     <img alt="setup" width="70%" src="https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/setup.png">
 </h1>
