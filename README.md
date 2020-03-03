@@ -11,8 +11,8 @@
 
 ```bash
 $ # Get the code
-$ git clone this-repo
-$ cd repo
+$ git clone https://github.com/BrianRuizy/nCoV-dashboard.git
+$ cd nCoV-dashboard/
 $
 $ # Virtualenv modules installation (Unix based systems)
 $ virtualenv --no-site-packages env
@@ -49,8 +49,8 @@ The app is provided with a basic configuration to be executed in [Heroku](https:
 
 ```bash
 $ # Get the code
-$ git clone this-repo
-$ cd repo
+$ git clone https://github.com/BrianRuizy/nCoV-dashboard.git
+$ cd nCoV-dashboard/
 $
 $ # Heroku Login
 $ heroku login
