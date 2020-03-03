@@ -9,15 +9,15 @@
 
 ## Setup
 
-<h1 align="center">
-    <img alt="setup" src="https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/setup.png">
+<h1 align="left">
+    <img alt="setup" width="70%" src="https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/setup.png">
 </h1>
 
 ## Deployment
 
 The app is provided with a basic configuration to be executed in [Heroku](https://heroku.com/).
-<h1 align="center">
-    <img alt="deploy" src="https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/deploy.png"
+<h1 align="left">
+    <img alt="deploy" width="70%" src="https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/deploy.png"
 </h1>
 
 ## Attribution
