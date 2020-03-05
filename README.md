@@ -1,6 +1,6 @@
 # nCov-2019 Interactive Dashboard
 
-![Django Dashboard Argon - Open-Source Web App.](https://raw.githubusercontent.com/app-generator/static/master/products/django-dashboard-argon-screen.png)
+![Dashboard screenshot](https://raw.githubusercontent.com/app-generator/static/master/products/django-dashboard-argon-screen.png)
 
 ## About 
 
