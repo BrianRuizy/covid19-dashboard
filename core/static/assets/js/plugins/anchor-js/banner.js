@@ -8,7 +8,7 @@ const date = `${dateObj.getFullYear()}-${padStart(dateObj.getMonth() + 1)}-${pad
 const banner = `/**
  * AnchorJS - v${pkg.version} - ${date}
  * ${pkg.homepage}
- * Copyright (c) ${dateObj.getFullYear()} Bryan Braun; Licensed ${pkg.license}
+ * Copyright (c) ${dateObj.getFullYear()} Brian Ruiz; Licensed ${pkg.license}
  */
 `;
 

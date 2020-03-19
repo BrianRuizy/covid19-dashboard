@@ -4,21 +4,30 @@ import numpy as np
 import pandas as pd
 import datetime
 
+# Datasets collected by JHU CSSE found in the following URL:
+# https://github.com/CSSEGISandData/COVID-19 
 
-def file_date():
-    # Returns file_date of most recent date
+
+def recent_file_date():
+    # Returns date string of most recent file
     yesterday = datetime.date.today() - datetime.timedelta(days=1)
     yesterday = yesterday.strftime('%m-%d-%Y')
-    file_date = yesterday+ '.csv'
+    file_date = yesterday
     
     return file_date
 
 
 def daily_report(date_string = None):
-    #TODO: Implement date_string arg handling for dynamic daily reports
+    # Reports date back to 01-22-2020
     daily_report_dir = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
-    df = pd.read_csv(daily_report_dir + file_date())
     
+    if date_string is None: 
+        file_date = recent_file_date()
+    else: 
+        file_date = date_string 
+    
+    df = pd.read_csv(daily_report_dir + file_date + '.csv')
+
     return df
 
 
