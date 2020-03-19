@@ -9,6 +9,8 @@
 
 The goal of this project is not to build *just another dashboard*. But, to focus on collaborative plot ideas, and emphasize mobile responsiveness which is scarce at the moment.
 
+Feel free to open an issue requesting a type of plot, table, or any feature for that matter.
+
 ## Setup
 
 Clone this repo, and create your virtual environment, there you will install the requisite package dependencies. 
