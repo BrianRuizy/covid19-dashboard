@@ -18,7 +18,7 @@ def recent_file_date():
 
 
 def daily_report(date_string = None):
-    # Reports date back to 01-22-2020
+    # Reports date as far back to 01-22-2020
     daily_report_dir = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
     
     if date_string is None: 
