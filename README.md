@@ -1,6 +1,6 @@
 # nCov-2019 Interactive Dashboard
 
-![Dashboard screenshot](https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/ncov-dash-mockup.jpg)
+![Dashboard screenshot](https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/ncov-dash-mockup.png)
 
 ## About 
 
