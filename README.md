@@ -1,6 +1,6 @@
 # nCov-2019 Interactive Dashboard
 
-![Dashboard screenshot](https://raw.githubusercontent.com/app-generator/static/master/products/django-dashboard-argon-screen.png)
+![Dashboard screenshot](https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/ncov-dash-mockup.jpg)
 
 ## About 
 
