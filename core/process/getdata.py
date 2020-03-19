@@ -37,7 +37,7 @@ def deaths_report():
 
 
 def recovered_report():
-    recovered_time_series = 'https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
+    recovered_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
     df = pd.read_csv(recovered_time_series)
     
     return df 
