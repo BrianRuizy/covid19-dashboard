@@ -32,7 +32,7 @@ The app is provided with a basic configuration to be executed in [Heroku](https:
 
 Heroku app is already configured to this GitHub repo, for *automatic deploys* from any push to the **master** branch. 
 <h1 align="left">
-    <img alt="deploy" width="70%" src="https://github.com/BrianRuizy/nCoV-covid-19-dashboard/blob/master/core/static/assets/img/deploy.png"
+    <img alt="deploy" width="70%" src="https://github.com/BrianRuizy/covid-19-dashboard/blob/master/core/static/assets/img/deploy.png"
 </h1>
 
 ## Contributors 
