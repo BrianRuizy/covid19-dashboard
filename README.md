@@ -15,7 +15,7 @@ Feel free to open an issue requesting a type of plot, table, or any feature for 
 
 Clone this repo, and create your virtual environment, there you will install the requisite package dependencies. 
 <h1 align="left">
-    <img alt="setup" width="70%" src="https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/setup.png">
+    <img alt="setup" width="70%" src="https://github.com/BrianRuizy/covid-19-dashboard/blob/master/core/static/assets/img/setup.png">
 </h1>
 
 ## Deployment
@@ -24,7 +24,7 @@ The app is provided with a basic configuration to be executed in [Heroku](https:
 
 Heroku app is already configured to this GitHub repo, for *automatic deploys* from any push to the **master** branch. 
 <h1 align="left">
-    <img alt="deploy" width="70%" src="https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/deploy.png"
+    <img alt="deploy" width="70%" src="https://github.com/BrianRuizy/nCoV-covid-19-dashboard/blob/master/core/static/assets/img/deploy.png"
 </h1>
 
 ## Attribution
