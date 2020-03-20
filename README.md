@@ -1,10 +1,18 @@
-# nCov-2019 Interactive Dashboard
+<h1 align="center">
+    nCov-2019 Interactive Dashboard
+</h1>
 
-![Dashboard screenshot](https://raw.githubusercontent.com/app-generator/static/master/products/django-dashboard-argon-screen.png)
+<pre>Website is viewable <a href="https://ncov-dashboard.herokuapp.com/" target="_blank">here.</a></pre>
+
+![](https://camo.githubusercontent.com/d0f65430681b67b7104f6130ada8c098ec5f66ba/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64652532307374796c652d7374616e646172642d627269676874677265656e2e7376673f7374796c653d666c6174)
+![](https://camo.githubusercontent.com/a307f74a14e41e762300323414ddef81f3d53ae2/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f736f757263657265722d696f2f736f757263657265722d6170702e7376673f636f6c6f72423d666630303030)
+
+![Dashboard screenshot](https://github.com/BrianRuizy/nCoV-dashboard/blob/master/core/static/assets/img/ncov-dash-mockup.png)
 
 ## About 
 
-> The 2019-20 coronavirus outbreak is an ongoing epidemic of Coronavirus Disease 2019 (COVID-19) caused by SARS-CoV-2, which started in > December 2019 and was first identified by authorities in Wuhan, capital of Hubei province in China, in January 2020 after 41 people 
+> The 2019-20 coronavirus outbreak is an ongoing epidemic of Coronavirus Disease 2019 (COVID-19) caused by SARS-CoV-2, which started in 
+> December 2019, and was first identified by authorities in Wuhan, capital of Hubei province in China, in January 2020 after 41 people 
 > presented with pneumonia of no clear cause. [1. Wiki](https://en.wikipedia.org/wiki/2019%E2%80%9320_Wuhan_coronavirus_outbreak)
 
 The goal of this project is not to build *just another dashboard*. But, to focus on collaborative plot ideas, and emphasize mobile responsiveness which is scarce at the moment.
@@ -26,6 +34,10 @@ Heroku app is already configured to this GitHub repo, for *automatic deploys* fr
 <h1 align="left">
     <img alt="deploy" width="70%" src="https://github.com/BrianRuizy/nCoV-covid-19-dashboard/blob/master/core/static/assets/img/deploy.png"
 </h1>
+
+## Contributors 
+
+[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/0)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/0)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/1)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/1)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/2)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/2)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/3)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/3)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/4)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/4)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/5)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/5)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/6)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/6)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/7)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/7)
 
 ## Attribution
 
