@@ -1,9 +1,3 @@
-# -*- encoding: utf-8 -*-
-"""
-License: Commercial
-Copyright (c) 2019 - present AppSeed.us
-"""
-
 import os
 from decouple import config
 from unipath import Path
@@ -30,7 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app'  # Enable the inner app 
+    'app',
+    'processdata'  # Enable the inner app 
 ]
 
 MIDDLEWARE = [

@@ -13,7 +13,6 @@ def recent_file_date():
     yesterday = datetime.date.today() - datetime.timedelta(days=1)
     yesterday = yesterday.strftime('%m-%d-%Y')
     file_date = yesterday
-    
     return file_date
 
 
@@ -27,26 +26,22 @@ def daily_report(date_string = None):
         file_date = date_string 
     
     df = pd.read_csv(daily_report_dir + file_date + '.csv')
-
     return df
 
 
 def confirmed_report():
     confirmed_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv'
     df = pd.read_csv(confirmed_time_series)
-
     return df
 
 
 def deaths_report():
     deaths_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv'
     df = pd.read_csv(deaths_time_series)
-    
     return df
 
 
 def recovered_report():
     recovered_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
     df = pd.read_csv(recovered_time_series)
-    
     return df 
