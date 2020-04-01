@@ -11,9 +11,13 @@ def index(request):
 
 
 def report(request):
-    daily_df = getdata.daily_report()
+    df = getdata.daily_report()
+    df = df[['Confirmed', 'Deaths', 'Recovered']].sum()
+    death_rate = f"{(df.Deaths / df.Confirmed)*100:.03f}%"
+    
     return render(request, 'index.html', {
-        'num_confirmed':daily_df.Confirmed.sum(),
-        'num_recovered':daily_df.Recovered.sum(),
-        'num_deaths':daily_df.Deaths.sum()
+        'num_confirmed': df.Confirmed,
+        'num_recovered': df.Recovered,
+        'num_deaths': df.Deaths,
+        'death_rate': death_rate,
         })
