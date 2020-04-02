@@ -3,6 +3,7 @@
 import numpy as np
 import pandas as pd
 import datetime
+import locale
 
 # Datasets collected by JHU CSSE found in the following URL:
 # https://github.com/CSSEGISandData/COVID-19 

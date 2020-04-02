@@ -4,11 +4,6 @@ from django.template import loader
 from django.http import HttpResponse
 from . import getdata
 
-# Create your views here.
-@login_required(login_url='/login/')
-def index(request):
-    return render(request, 'index.html')
-
 
 def report(request):
     df = getdata.daily_report()
