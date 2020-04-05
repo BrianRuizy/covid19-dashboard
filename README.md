@@ -21,7 +21,7 @@ Feel free to open an issue requesting a type of plot, table, or any feature for 
 
 ## Setup
 
-Clone this repo, and create your virtual environment, there you will install the requisite package dependencies. 
+Fork this repo, and clone to your local machine. Create your virtual Python environment, where you will install the requisite package dependencies. 
 <h1 align="left">
     <img alt="setup" width="70%" src="https://github.com/BrianRuizy/covid-19-dashboard/blob/master/core/static/assets/img/setup.png">
 </h1>
