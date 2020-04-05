@@ -16,3 +16,5 @@ def report(request):
         'num_deaths': f'{df.Deaths:,}',
         'death_rate': death_rate,
         })
+
+    
