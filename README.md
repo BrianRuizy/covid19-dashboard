@@ -30,7 +30,7 @@ Fork this repo, and clone to your local machine. Create your virtual Python envi
 
 The app is provided with a basic configuration to be executed in [Heroku](https://heroku.com/).
 
-Heroku app is already configured to this GitHub repo, for *automatic deploys* from any push to the **master** branch. 
+Heroku app is already configured to this GitHub repo, for *automatic deploys* from any push to the **master** branch. Create a pull request containing your respective changes and wait for approval/merge. 
 <h1 align="left">
     <img alt="deploy" width="70%" src="https://github.com/BrianRuizy/covid-19-dashboard/blob/master/core/static/assets/img/deploy.png"
 </h1>
