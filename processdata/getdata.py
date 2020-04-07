@@ -54,13 +54,14 @@ def recovered_report():
 def realtime_growth():
     # returns dataframe of real time growth of confirmations
     # columns excluded with list comp. are: ['Province/State','Country/Region','Lat','Long']
-    growth_df = pd.DataFrame([])
     
     df1 = confirmed_report()[confirmed_report().columns[4:]].sum()
     df2 = deaths_report()[deaths_report().columns[4:]].sum()
     df3 = recovered_report()[recovered_report().columns[4:]].sum()
     
     # Multiple assignment
-    growth_df['Cofirmed'], growth_df['Deaths'], growth_df['Recovered'] = df1, df2, df3
+    growth_df = pd.DataFrame([])
+    growth_df['Confirmed'], growth_df['Deaths'], growth_df['Recovered'] = df1, df2, df3
+    growth_df.index = growth_df.index.rename('Date')
     
     return growth_df
