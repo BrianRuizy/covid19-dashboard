@@ -15,7 +15,7 @@
 > December 2019, and was first identified by authorities in Wuhan, capital of Hubei province in China, in January 2020 after 41 people 
 > presented with pneumonia of no clear cause. [1. Wiki](https://en.wikipedia.org/wiki/2019%E2%80%9320_Wuhan_coronavirus_outbreak)
 
-The goal of this project is not to build *just another dashboard*. But, to focus on collaborative plot ideas, and emphasize mobile responsiveness which is scarce at the moment.
+The goal of this project is not to build *just another dashboard*. But, to focus on collaborative plot ideas, and emphasize mobile responsiveness. Data is scraped from Johns Hopkins University [CSSE](https://systems.jhu.edu/) 2019-ncov data repository, found [here](https://github.com/CSSEGISandData/COVID-19).
 
 Feel free to open an issue requesting a type of plot, table, or any feature for that matter.
 

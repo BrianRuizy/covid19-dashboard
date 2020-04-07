@@ -31,18 +31,36 @@ def daily_report(date_string = None):
 
 
 def confirmed_report():
-    confirmed_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Confirmed.csv'
+    # Returns time series version of cases confirmed globally
+    confirmed_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
     df = pd.read_csv(confirmed_time_series)
     return df
 
 
 def deaths_report():
-    deaths_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Deaths.csv'
+    # Returns time series version of deaths globally
+    deaths_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
     df = pd.read_csv(deaths_time_series)
     return df
 
 
 def recovered_report():
-    recovered_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_19-covid-Recovered.csv'
+    # Return time series version of recoveries globally
+    recovered_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
     df = pd.read_csv(recovered_time_series)
     return df 
+
+
+def realtime_growth():
+    # returns dataframe of real time growth of confirmations
+    # columns excluded with list comp. are: ['Province/State','Country/Region','Lat','Long']
+    growth_df = pd.DataFrame([])
+    
+    df1 = confirmed_report()[confirmed_report().columns[4:]].sum()
+    df2 = deaths_report()[deaths_report().columns[4:]].sum()
+    df3 = recovered_report()[recovered_report().columns[4:]].sum()
+    
+    # Multiple assignment
+    growth_df['Cofirmed'], growth_df['Deaths'], growth_df['Recovered'] = df1, df2, df3
+    
+    return growth_df
