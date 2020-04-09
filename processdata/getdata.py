@@ -19,6 +19,7 @@ def recent_file_date():
 
 def daily_report(date_string = None):
     # Reports date as far back to 01-22-2020
+    # If passing arg, must use above date formatting '01-22-2020'
     daily_report_dir = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
     
     if date_string is None: 
@@ -51,10 +52,11 @@ def recovered_report():
     return df 
 
 
-def realtime_growth():
-    # returns dataframe of real time growth of confirmations
-    # columns excluded with list comp. are: ['Province/State','Country/Region','Lat','Long']
+def realtime_growth(date_string=None):
+    # returns dataframe of real time global growth
+    # If passing arg, must use following date formatting '4/12/20'
     
+    # columns excluded with list comp. are: ['Province/State','Country/Region','Lat','Long']
     df1 = confirmed_report()[confirmed_report().columns[4:]].sum()
     df2 = deaths_report()[deaths_report().columns[4:]].sum()
     df3 = recovered_report()[recovered_report().columns[4:]].sum()
@@ -64,4 +66,12 @@ def realtime_growth():
     growth_df['Confirmed'], growth_df['Deaths'], growth_df['Recovered'] = df1, df2, df3
     growth_df.index = growth_df.index.rename('Date')
     
+    
+    if date_string is not None: 
+        return growth_df.loc[growth_df.index==date_string]
+    
     return growth_df
+
+def death_rate_wkly():
+    
+    return None
