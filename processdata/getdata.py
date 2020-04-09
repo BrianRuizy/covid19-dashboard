@@ -52,7 +52,7 @@ def recovered_report():
     return df 
 
 
-def realtime_growth(date_string=None):
+def realtime_growth(date_string=None, weekly=False, monthly=False):
     # returns dataframe of real time global growth
     # If passing arg, must use following date formatting '4/12/20'
     
@@ -66,12 +66,23 @@ def realtime_growth(date_string=None):
     growth_df['Confirmed'], growth_df['Deaths'], growth_df['Recovered'] = df1, df2, df3
     growth_df.index = growth_df.index.rename('Date')
     
-    
     if date_string is not None: 
         return growth_df.loc[growth_df.index==date_string]
     
+    if weekly is True: 
+        intervals = pd.date_range(end=pd.Timestamp('now').date(), periods=8, freq='7D').strftime('%-m/%-d/%y').tolist()
+        weekly_df = pd.DataFrame()
+        
+        for day in intervals:
+            weekly_df = weekly_df.add(growth_df.loc[growth_df.index==day], fill_value=0)
+            
+        return weekly_df
+    
+    # elif monthly is True:
+    #     print(None)
+        
     return growth_df
 
 def death_rate_wkly():
-    
+    # Returns death rate of 6 week interval
     return None
