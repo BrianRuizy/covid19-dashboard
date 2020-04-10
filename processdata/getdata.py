@@ -53,36 +53,46 @@ def recovered_report():
 
 
 def realtime_growth(date_string=None, weekly=False, monthly=False):
-    # returns dataframe of real time global growth
-    # If passing arg, must use following date formatting '4/12/20'
+    """[summary]: returns dataframe of real time global growth.
+    If passing date_string argument, must use following date formatting '4/12/20'.
+    Columns excluded with list comp. are: ['Province/State','Country/Region','Lat','Long'].
+
+    Returns:
+        [growth_df] -- [growth in series]
+    """ 
     
-    # columns excluded with list comp. are: ['Province/State','Country/Region','Lat','Long']
     df1 = confirmed_report()[confirmed_report().columns[4:]].sum()
     df2 = deaths_report()[deaths_report().columns[4:]].sum()
     df3 = recovered_report()[recovered_report().columns[4:]].sum()
     
-    # Multiple assignment
     growth_df = pd.DataFrame([])
     growth_df['Confirmed'], growth_df['Deaths'], growth_df['Recovered'] = df1, df2, df3
     growth_df.index = growth_df.index.rename('Date')
     
     if date_string is not None: 
-        return growth_df.loc[growth_df.index==date_string]
+        return growth_df.loc[growth_df.index == date_string]
     
     if weekly is True: 
-        intervals = pd.date_range(end=pd.Timestamp('now').date(), periods=8, freq='7D').strftime('%-m/%-d/%y').tolist()
         weekly_df = pd.DataFrame()
+        yesterday = pd.Timestamp('now').date() - pd.Timedelta(days=1)
+        intervals = pd.date_range(end=yesterday, periods=8, freq='7D').strftime('%-m/%-d/%y').tolist()
         
         for day in intervals:
             weekly_df = weekly_df.add(growth_df.loc[growth_df.index==day], fill_value=0)
             
-        return weekly_df
+        growth_df = weekly_df
     
-    # elif monthly is True:
-    #     print(None)
+    elif monthly is True:
+        monthly_df = pd.DataFrame()
+        growth_df = monthly_df
+
         
     return growth_df
 
-def death_rate_wkly():
-    # Returns death rate of 6 week interval
+def percentage_trend():
+    """[summary]: Returns percantage of trend, relative to week prior delta
+    Returns:
+        [dataframe] -- [percentage objects]
+    """    
     return None
+
