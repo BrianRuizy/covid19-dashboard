@@ -73,26 +73,34 @@ def realtime_growth(date_string=None, weekly=False, monthly=False):
         return growth_df.loc[growth_df.index == date_string]
     
     if weekly is True: 
-        weekly_df = pd.DataFrame()
+        weekly_df = pd.DataFrame([])
         yesterday = pd.Timestamp('now').date() - pd.Timedelta(days=1)
         intervals = pd.date_range(end=yesterday, periods=8, freq='7D').strftime('%-m/%-d/%y').tolist()
         
         for day in intervals:
-            weekly_df = weekly_df.add(growth_df.loc[growth_df.index==day], fill_value=0)
+            weekly_df = weekly_df.append(growth_df.loc[growth_df.index==day])
             
-        growth_df = weekly_df
+        return weekly_df
     
     elif monthly is True:
+        #TODO: finish implementation of monthly arg. 
         monthly_df = pd.DataFrame()
         growth_df = monthly_df
 
         
     return growth_df
 
-def percentage_trend():
+def percentage_trends():
     """[summary]: Returns percantage of trend, relative to week prior delta
     Returns:
         [dataframe] -- [percentage objects]
     """    
-    return None
+    current = realtime_growth(weekly=True).iloc[-1]
+    current['death_rate'] = (current.Deaths / current.Confirmed)*100
+    last_week = realtime_growth(weekly=True).iloc[-2]
+    last_week['death_rate'] = (last_week.Deaths / last_week.Confirmed)*100
+    
+    trends = round(number=((current - last_week)/last_week)*100, ndigits=1)
+        
+    return trends
 
