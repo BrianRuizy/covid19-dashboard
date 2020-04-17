@@ -12,6 +12,8 @@ def report(request):
     
     trends = getdata.percentage_trends()
     
+    growth = getdata.realtime_growth(weekly=True)
+    
     return render(request, 'index.html', {
         'num_confirmed': f'{df.Confirmed:,}',
         'num_recovered': f'{df.Recovered:,}',
@@ -21,14 +23,5 @@ def report(request):
         'deaths_trend': trends.Deaths, 
         'recovered_trend': trends.Recovered, 
         'death_rate_trend': trends.death_rate,
+        'weekly_confirmed': growth.Confirmed.values,
         })
-
-# def trends(request):
-#     trends = getdata.percentage_trends()
-    
-#     return render(request, 'index.html', {
-#         'confirmed_trend': trends.Confirmed, 
-#         'deaths_trend': trends.Deaths, 
-#         'recovered_trend': trends.Recovered, 
-#         'death_rate_trend': trends.death_rate,
-#         })
