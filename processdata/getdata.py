@@ -68,24 +68,24 @@ def realtime_growth(date_string=None, weekly=False, monthly=False):
     growth_df = pd.DataFrame([])
     growth_df['Confirmed'], growth_df['Deaths'], growth_df['Recovered'] = df1, df2, df3
     growth_df.index = growth_df.index.rename('Date')
+    yesterday = pd.Timestamp('now').date() - pd.Timedelta(days=1)
     
     if date_string is not None: 
         return growth_df.loc[growth_df.index == date_string]
     
     if weekly is True: 
         weekly_df = pd.DataFrame([])
-        yesterday = pd.Timestamp('now').date() - pd.Timedelta(days=1)
         intervals = pd.date_range(end=yesterday, periods=8, freq='7D').strftime('%-m/%-d/%y').tolist()
-        
         for day in intervals:
             weekly_df = weekly_df.append(growth_df.loc[growth_df.index==day])
-            
         return weekly_df
     
     elif monthly is True:
-        #TODO: finish implementation of monthly arg. 
-        monthly_df = pd.DataFrame()
-        growth_df = monthly_df
+        monthly_df = pd.DataFrame([])
+        intervals = pd.date_range(end=yesterday, periods=3, freq='1M').strftime('%-m/%-d/%y').tolist()
+        for day in intervals:
+            monthly_df = monthly_df.append(growth_df.loc[growth_df.index==day])
+        return monthly_df
 
         
     return growth_df

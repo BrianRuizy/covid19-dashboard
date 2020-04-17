@@ -23,4 +23,5 @@ def report(request):
         'deaths_trend': trends.Deaths, 
         'recovered_trend': trends.Recovered, 
         'death_rate_trend': trends.death_rate,
+        'weekly_confirmed': growth.Confirmed.values,
         })
