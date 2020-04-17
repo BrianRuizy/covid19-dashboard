@@ -986,7 +986,7 @@ var OrdersChart = (function() {
         scales: {
           yAxes: [{
             gridLines: {
-              lineWidth: 1,
+              lineWidth: 2,
               color: '#dfe2e6',
               zeroLineColor: '#dfe2e6'
             },
@@ -1019,10 +1019,10 @@ var OrdersChart = (function() {
         }
       },
       data: {
-        labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        labels: ['Feb 5', 'Feb 19', 'Mar 4', 'Mar 18', 'Apr 1', 'Apr 15'],
         datasets: [{
           label: 'Sales',
-          data: [25, 20, 30, 22, 17, 29]
+          data: [2.04, 2.80, 3.42, 4.07, 5.06, 6.53]
         }]
       }
     });
