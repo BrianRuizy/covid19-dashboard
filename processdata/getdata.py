@@ -60,7 +60,6 @@ def realtime_growth(date_string=None, weekly=False, monthly=False):
     Returns:
         [growth_df] -- [growth in series]
     """ 
-    
     df1 = confirmed_report()[confirmed_report().columns[4:]].sum()
     df2 = deaths_report()[deaths_report().columns[4:]].sum()
     df3 = recovered_report()[recovered_report().columns[4:]].sum()
@@ -86,8 +85,7 @@ def realtime_growth(date_string=None, weekly=False, monthly=False):
         for day in intervals:
             monthly_df = monthly_df.append(growth_df.loc[growth_df.index==day])
         return monthly_df
-
-        
+    
     return growth_df
 
 def percentage_trends():
@@ -101,6 +99,6 @@ def percentage_trends():
     last_week['death_rate'] = (last_week.Deaths / last_week.Confirmed)*100
     
     trends = round(number=((current - last_week)/last_week)*100, ndigits=1)
-        
+    
     return trends
 
