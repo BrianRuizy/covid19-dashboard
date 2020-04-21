@@ -986,7 +986,7 @@ var OrdersChart = (function() {
         scales: {
           yAxes: [{
             gridLines: {
-              lineWidth: 2,
+              lineWidth: 1,
               color: '#dfe2e6',
               zeroLineColor: '#dfe2e6'
             },
