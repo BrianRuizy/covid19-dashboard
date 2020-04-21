@@ -40,7 +40,7 @@ def trends():
 def growth_plot():
     growth_df = getdata.realtime_growth()
     
-    layout = Layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', template='plotly_dark', showlegend=False, font=dict(color='#8898aa '),  margin=dict(t=0))
+    layout = Layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', template='plotly_dark', showlegend=False, font=dict(color='#8898aa'),  margin=dict(t=0, l=0, r=0))
     fig = go.Figure(layout=layout)
     domain = []
     
