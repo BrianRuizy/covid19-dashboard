@@ -4966,7 +4966,7 @@ input[type="button"].btn-block {
   padding: 1.5rem;
 }
 
-.card-body .icon{
+.card-body.pyplot .icon{
   width: 1rem;
   height: 1rem;
 }
