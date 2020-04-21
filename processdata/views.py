@@ -7,6 +7,7 @@ from . import getdata
 from plotly.offline import plot
 from plotly.graph_objs import Layout
 import plotly.graph_objs as go
+from datetime import datetime
 
 def index(request): 
     report_dict = report()
@@ -39,15 +40,20 @@ def trends():
 def growth_plot():
     growth_df = getdata.realtime_growth()
     
-    layout = Layout(paper_bgcolor='rgba(0,0,0,0)',plot_bgcolor='rgba(0,0,0,0)', template='plotly_dark', showlegend=False)
+    layout = Layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', template='plotly_dark', showlegend=False, font=dict(color='#8898aa '), hovermode='x')
     fig = go.Figure(layout=layout)
-
-    confirmed = go.Scatter(x=growth_df.index, y=growth_df.Confirmed, name='Confirmed', mode='lines+markers')
-    deaths = go.Scatter(x=growth_df.index, y=growth_df.Deaths, name='Deaths', mode='lines+markers')
-    recovered = go.Scatter(x=growth_df.index, y=growth_df.Recovered, name='Recovered', mode='lines+markers')
+    domain = []
+    
+    for date in range(len(growth_df.index)):
+        domain.append(datetime.strptime(growth_df.index[date], '%m/%d/%y').strftime('%-m/%-d'))
+    
+    confirmed = go.Scatter(x=domain, y=growth_df.Confirmed, name='Confirmed', mode='lines', line=dict(width=4))
+    deaths = go.Scatter(x=domain, y=growth_df.Deaths, name='Deaths', mode='lines', line=dict(width=4))
+    recovered = go.Scatter(x=domain, y=growth_df.Recovered, name='Recovered', mode='lines', line=dict(width=4))
 
     traces = [confirmed, deaths, recovered]
     fig.add_traces(traces)
-    plot_div = plot(fig, output_type='div')
+    plot_div = plot(fig, output_type='div', config={'displayModeBar': False})
+    
     
     return {'plot_div': plot_div}
