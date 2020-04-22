@@ -88,17 +88,18 @@ def realtime_growth(date_string=None, weekly=False, monthly=False):
     
     return growth_df
 
+
 def percentage_trends():
     """[summary]: Returns percantage of trend, relative to week prior delta
     Returns:
         [dataframe] -- [percentage objects]
     """    
     current = realtime_growth(weekly=True).iloc[-1]
-    current['death_rate'] = (current.Deaths / current.Confirmed)*100
     last_week = realtime_growth(weekly=True).iloc[-2]
-    last_week['death_rate'] = (last_week.Deaths / last_week.Confirmed)*100
-    
     trends = round(number=((current - last_week)/last_week)*100, ndigits=1)
+    
+    rate_change = round(((current.Deaths/current.Confirmed)*100)-((last_week.Deaths / last_week.Confirmed)*100), ndigits=2)
+    trends = trends.append(pd.Series(data=rate_change, index=['Death_rate']))
     
     return trends
 

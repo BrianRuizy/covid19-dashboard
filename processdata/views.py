@@ -20,7 +20,7 @@ def index(request):
 def report():
     df = getdata.daily_report()
     df = df[['Confirmed', 'Deaths', 'Recovered']].sum()
-    death_rate = f"{(df.Deaths / df.Confirmed)*100:.03f}%"
+    death_rate = f"{(df.Deaths / df.Confirmed)*100:.02f}%"
     return {
         'num_confirmed': f'{df.Confirmed:,}',
         'num_recovered': f'{df.Recovered:,}',
@@ -34,7 +34,7 @@ def trends():
         'confirmed_trend': trends.Confirmed, 
         'deaths_trend': trends.Deaths, 
         'recovered_trend': trends.Recovered, 
-        'death_rate_trend': trends.death_rate }
+        'death_rate_trend': trends.Death_rate }
     
 
 def growth_plot():
