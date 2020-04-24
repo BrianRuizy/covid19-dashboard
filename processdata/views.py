@@ -40,7 +40,7 @@ def trends():
 def growth_plot():
     growth_df = getdata.realtime_growth()
     
-    layout = Layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', template='plotly_dark', showlegend=False, font=dict(color='#8898aa'),  margin=dict(t=0, l=15, r=10))
+    layout = Layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', template='plotly_dark', legend=dict(x=0.025,y=1), font=dict(color='#8898aa'), height=350,  margin=dict(t=0, l=15, r=10, b=0))
     fig = go.Figure(layout=layout)
     domain = []
     
@@ -48,8 +48,9 @@ def growth_plot():
         domain.append(datetime.strptime(growth_df.index[date], '%m/%d/%y').strftime('%-m/%-d'))
     
     confirmed = go.Scatter(x=domain, y=growth_df.Confirmed, name='Confirmed', mode='lines', line=dict(width=4))
-    deaths = go.Scatter(x=domain, y=growth_df.Deaths, name='Deaths', mode='lines', line=dict(width=4))
     recovered = go.Scatter(x=domain, y=growth_df.Recovered, name='Recovered', mode='lines', line=dict(width=4))
+    deaths = go.Scatter(x=domain, y=growth_df.Deaths, name='Deaths', mode='lines', line=dict(width=4))
+    
 
     traces = [confirmed, deaths, recovered]
     fig.add_traces(traces)
