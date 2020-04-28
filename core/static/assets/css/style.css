@@ -1983,11 +1983,25 @@ pre code {
 }
 
 .table-responsive {
-  display: block;
+  display: inline-block;
   width: 100%;
-  overflow-x: auto;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
+  height: 315px;
+}
+
+.table-responsive th, thead{
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 0px;
+}
+
+.table-responsive::-webkit-scrollbar {
+  display: none;
 }
 
 .table-responsive>.table-bordered {
