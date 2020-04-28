@@ -24,9 +24,9 @@ def report():
     df = df[['Confirmed', 'Deaths', 'Recovered']].sum()
     death_rate = f"{(df.Deaths / df.Confirmed)*100:.02f}%"
     return {
-        'num_confirmed': f'{df.Confirmed:,}',
-        'num_recovered': f'{df.Recovered:,}',
-        'num_deaths': f'{df.Deaths:,}',
+        'num_confirmed': df.Confirmed,
+        'num_recovered': df.Recovered,
+        'num_deaths': df.Deaths,
         'death_rate': death_rate }
     
 

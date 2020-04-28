@@ -25,7 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'processdata'  # Enable the inner app 
+    'processdata',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
