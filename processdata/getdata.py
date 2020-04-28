@@ -4,30 +4,24 @@ import numpy as np
 import pandas as pd
 import datetime
 import locale
+import urllib.request
+from urllib.error import HTTPError
 
 # Datasets collected by JHU CSSE found in the following URL:
 # https://github.com/CSSEGISandData/COVID-19 
 
-
-def recent_file_date():
-    # Returns date string of most recent file
-    yesterday = datetime.date.today() - datetime.timedelta(days=1)
-    yesterday = yesterday.strftime('%m-%d-%Y')
-    file_date = yesterday
-    return file_date
-
-
-def daily_report(date_string = None):
+def daily_report(date_string=None):
     # Reports date as far back to 01-22-2020
     # If passing arg, must use above date formatting '01-22-2020'
-    daily_report_dir = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
+    report_directory = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
     
     if date_string is None: 
-        file_date = recent_file_date()
+        yesterday = datetime.date.today() - datetime.timedelta(days=2)
+        file_date = yesterday.strftime('%m-%d-%Y')
     else: 
         file_date = date_string 
     
-    df = pd.read_csv(daily_report_dir + file_date + '.csv')
+    df = pd.read_csv(report_directory + file_date + '.csv')
     return df
 
 
@@ -103,3 +97,13 @@ def percentage_trends():
     
     return trends
 
+
+def countries_table():
+    df = daily_report()[['Country_Region', 'Confirmed', 'Deaths', 'Recovered']]
+    df.rename(columns={'Country_Region':'Country'}, inplace=True) 
+    df = df.groupby('Country', as_index=False).sum()
+    df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
+    
+    df['Death Rate'] = round((df['Deaths']/df['Confirmed'])*100, ndigits=2)
+        
+    return df
