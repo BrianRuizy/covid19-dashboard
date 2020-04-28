@@ -98,12 +98,13 @@ def percentage_trends():
     return trends
 
 
-def countries_table():
-    df = daily_report()[['Country_Region', 'Confirmed', 'Deaths', 'Recovered']]
+def cases_table():
+    df = daily_report()[['Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
     df.rename(columns={'Country_Region':'Country'}, inplace=True) 
     df = df.groupby('Country', as_index=False).sum()
     df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
     
-    df['Death Rate'] = round((df['Deaths']/df['Confirmed'])*100, ndigits=2)
         
     return df
+
+    # df['Death_Rate'] = round((df['Deaths']/df['Confirmed'])*100, ndigits=2)
