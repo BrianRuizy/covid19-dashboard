@@ -119,7 +119,7 @@
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
-                  <h6 class="text-uppercase text-light ls-1 mb-1">Overview | Real-Time</h6>
+                  <h6 class="text-uppercase text-light ls-1 mb-1">Global | Real-Time</h6>
                   <h2 class="text-white mb-0">Growth</h2>
                 </div>
                 <div class="col">
@@ -153,10 +153,10 @@
         </div>
         <div class="col-xl-4">
           <div class="card shadow">
-            <div class="card-header bg-transparent">
+            <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h6 class="text-uppercase text-muted ls-1 mb-1">Overview | Bi-weekly</h6>
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Bi-weekly</h6>
                   <h2 class="mb-0">Death Rate</h2>
                 </div>
               </div>
@@ -177,106 +177,50 @@
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="mb-0">Cases by Country</h3>
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Sortable</h6>
+                  <h2 class="mb-0">Cases</h2>
                 </div>
                 <div class="col text-right">
                   <a href="#!" class="btn btn-sm btn-primary">See all</a>
                 </div>
               </div>
             </div>
+
             <div class="table-responsive">
               <!-- Projects table -->
-              <table class="table align-items-center table-flush">
+              <table class="table align-items-center table-flush sortable ">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Country</th>
                     <th scope="col">Confirmed</th>
+                    <th scope="col">Recovered</th>
+                    <th scope="col">Deaths</th>
                     <th scope="col">Active</th>
-                    <th scope="col">Rate</th>
                   </tr>
                 </thead>
                 <tbody>
+                  {% for i, row in cases_table.iterrows %}
                   <tr>
-                    <th scope="row">
-                      /argon/
-                    </th>
-                    <td>
-                      4,569
-                    </td>
-                    <td>
-                      340
-                    </td>
-                    <td>
-                      <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                    </td>
+                      <td class="font-weight-bold" >{{ row.Country }}</td>
+                      <td>{{ row.Confirmed }}</td>
+                      <td>{{ row.Recovered }}</td>
+                      <td>{{ row.Deaths }}</td>
+                      <td>{{ row.Active }}</td>
                   </tr>
-                  <tr>
-                    <th scope="row">
-                      /argon/index.html
-                    </th>
-                    <td>
-                      3,985
-                    </td>
-                    <td>
-                      319
-                    </td>
-                    <td>
-                      <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      /argon/charts.html
-                    </th>
-                    <td>
-                      3,513
-                    </td>
-                    <td>
-                      294
-                    </td>
-                    <td>
-                      <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      /argon/tables.html
-                    </th>
-                    <td>
-                      2,050
-                    </td>
-                    <td>
-                      147
-                    </td>
-                    <td>
-                      <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                      /argon/profile.html
-                    </th>
-                    <td>
-                      1,795
-                    </td>
-                    <td>
-                      190
-                    </td>
-                    <td>
-                      <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                    </td>
-                  </tr>
+                  {% endfor %}
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+        
         <div class="col-xl-4">
           <div class="card shadow">
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="mb-0">Deaths</h3>
+                  <h6 class="text-uppercase text-muted ls-1 mb-1">Global</h6>
+                  <h2 class="mb-0">Deaths</h2>
                 </div>
                 <div class="col text-right">
                   <a href="#!" class="btn btn-sm btn-primary">See all</a>
@@ -290,13 +234,13 @@
                   <tr>
                     <th scope="col">Country</th>
                     <th scope="col">Deaths</th>
-                    <th scope="col"></th>
+                    <th scope="col">Rate</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">
-                      Facebook
+                      test
                     </th>
                     <td>
                       1,480
@@ -314,7 +258,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      Facebook
+                      test
                     </th>
                     <td>
                       5,480
@@ -332,7 +276,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      Google
+                      test
                     </th>
                     <td>
                       4,807
@@ -350,7 +294,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      Instagram
+                      test
                     </th>
                     <td>
                       3,678
@@ -368,7 +312,7 @@
                   </tr>
                   <tr>
                     <th scope="row">
-                      twitter
+                      test
                     </th>
                     <td>
                       2,645
