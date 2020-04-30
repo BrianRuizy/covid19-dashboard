@@ -18334,6 +18334,36 @@ textarea[resize="horizontal"] {
     height: 70px;
   }
 }
+table.sortable tbody {
+  counter-reset: sortabletablescope;
+}
+
+table.sortable thead tr::before {
+  content: "";
+  display: table-cell;
+  background-color: #f6f9fc;
+  position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 0px;
+  border-top: 1px solid #e9ecef;
+
+}
+
+table.sortable tbody tr::before {
+  content: counter(sortabletablescope);
+  counter-increment: sortabletablescope;
+  display: table-cell;
+  text-align: center;
+  font-size: 11px;
+  padding: 14px 0px 0 8px;
+  color: #cccfd2;
+  background: transparent;
+  border-top: 1px solid #e9ecef;
+}
 
 .table thead th {
   padding-top: 0.75rem;
