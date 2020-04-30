@@ -3,15 +3,15 @@
 import numpy as np
 import pandas as pd
 import datetime
-import locale
-import urllib.request
-from urllib.error import HTTPError
 
-# Datasets collected by JHU CSSE found in the following URL:
+
+# Datasets scraped can be found in the following URL's:
 # https://github.com/CSSEGISandData/COVID-19 
+# https://github.com/owid/covid-19-data/tree/master/public/data
+
 
 def daily_report(date_string=None):
-    # Reports date as far back to 01-22-2020
+    # Reports aggegrade data, dating as far back to 01-22-2020
     # If passing arg, must use above date formatting '01-22-2020'
     report_directory = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
     
@@ -25,24 +25,34 @@ def daily_report(date_string=None):
     return df
 
 
+def daily_cases():
+    # returns the daily reported cases for respective date, 
+    # segmented globally and by country
+    df = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/new_cases.csv')
+    return df
+
+
+def daily_deaths():
+    # returns the daily reported deaths for respective date, 
+    df = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/new_deaths.csv')
+    return df
+
+
 def confirmed_report():
-    # Returns time series version of cases confirmed globally
-    confirmed_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
-    df = pd.read_csv(confirmed_time_series)
+    # Returns time series version of total cases confirmed globally
+    df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv')
     return df
 
 
 def deaths_report():
-    # Returns time series version of deaths globally
-    deaths_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
-    df = pd.read_csv(deaths_time_series)
+    # Returns time series version of total deaths globally
+    df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv')
     return df
 
 
 def recovered_report():
-    # Return time series version of recoveries globally
-    recovered_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
-    df = pd.read_csv(recovered_time_series)
+    # Return time series version of total recoveries globally
+    df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv')
     return df 
 
 
@@ -61,6 +71,7 @@ def realtime_growth(date_string=None, weekly=False, monthly=False):
     growth_df = pd.DataFrame([])
     growth_df['Confirmed'], growth_df['Deaths'], growth_df['Recovered'] = df1, df2, df3
     growth_df.index = growth_df.index.rename('Date')
+    
     yesterday = pd.Timestamp('now').date() - pd.Timedelta(days=1)
     
     if date_string is not None: 
@@ -104,7 +115,5 @@ def cases_table():
     df = df.groupby('Country', as_index=False).sum()
     df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
     
-        
     return df
 
-    # df['Death_Rate'] = round((df['Deaths']/df['Confirmed'])*100, ndigits=2)

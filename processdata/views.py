@@ -5,9 +5,19 @@ from django.http import HttpResponse
 from . import getdata
 
 from plotly.offline import plot
-from plotly.graph_objs import Layout
 import plotly.graph_objs as go
-from datetime import datetime
+from plotly.graph_objs import Layout
+import pandas as pd
+
+layout = Layout(
+    paper_bgcolor='rgba(0,0,0,0)', 
+    plot_bgcolor='rgba(0,0,0,0)', 
+    template='plotly_dark', 
+    legend=dict(x=0.025, y=1), 
+    font=dict(color='#8898aa'), 
+    height=350,
+    margin=dict(t=0, l=15, r=10, b=0)
+    )
 
 def index(request): 
     report_dict = report()
@@ -41,23 +51,29 @@ def trends():
 
 def growth_plot():
     df = getdata.realtime_growth()
-    layout = Layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', template='plotly_dark', legend=dict(x=0.025,y=1), font=dict(color='#8898aa'), height=350,  margin=dict(t=0, l=15, r=10, b=0))
+    domain = pd.to_datetime(df.index)
     fig = go.Figure(layout=layout)
-    domain = []
-    
-    for date in range(len(df.index)):
-        domain.append(datetime.strptime(df.index[date], '%m/%d/%y').strftime('%-m/%-d'))
     
     confirmed = go.Scatter(x=domain, y=df.Confirmed, name='Confirmed', mode='lines', line=dict(width=4))
     recovered = go.Scatter(x=domain, y=df.Recovered, name='Recovered', mode='lines', line=dict(width=4))
     deaths = go.Scatter(x=domain, y=df.Deaths, name='Deaths', mode='lines', line=dict(width=4))
-    
-    traces = [confirmed, deaths, recovered]
-    fig.add_traces(traces)
+
+    fig.add_traces([confirmed, deaths, recovered])
     plot_div = plot(fig, output_type='div', config={'displayModeBar': False})
 
     return {'plot_div': plot_div}
     
+    
+def daily_growth_plot():
+    dcases = getdata.daily_cases()[['date', 'World']]
+    ddeaths = getdata.daily_deaths()[['date', 'World']]
+    fig = go.Figure(layout=layout)
+    
+    dcases_trace = go.Scatter(x=dcases.date, y=dcases.World, name='Cases', mode='lines+markers')
+    ddeaths_trace = go.Scatter(x=ddeaths.date, y=ddeaths.World, name='Deaths', mode='lines+markers')
+    fig.add_traces([dcases_trace, ddeaths_trace])
+    
+    return
 
 def cases_table():
     df = getdata.cases_table()
