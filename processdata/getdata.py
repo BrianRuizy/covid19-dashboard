@@ -7,11 +7,13 @@ import locale
 import urllib.request
 from urllib.error import HTTPError
 
-# Datasets collected by JHU CSSE found in the following URL:
+# Datasets scraped can be found in the following URL's:
 # https://github.com/CSSEGISandData/COVID-19 
+# https://github.com/owid/covid-19-data/tree/master/public/data
+
 
 def daily_report(date_string=None):
-    # Reports date as far back to 01-22-2020
+    # Reports aggegrade data, dating as far back to 01-22-2020
     # If passing arg, must use above date formatting '01-22-2020'
     report_directory = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/'
     
@@ -24,23 +26,35 @@ def daily_report(date_string=None):
     df = pd.read_csv(report_directory + file_date + '.csv')
     return df
 
+def daily_cases():
+    # returns the daily reported cases for respective date, 
+    # segmented globally and by country
+    df = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/new_cases.csv')
+    return df
+
+
+def daily_deaths():
+    # returns the daily reported deaths for respective date, 
+    df = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/new_deaths.csv')
+    return df
+
 
 def confirmed_report():
-    # Returns time series version of cases confirmed globally
+    # Returns time series version of total cases confirmed globally
     confirmed_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
     df = pd.read_csv(confirmed_time_series)
     return df
 
 
 def deaths_report():
-    # Returns time series version of deaths globally
+    # Returns time series version of total deaths globally
     deaths_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
     df = pd.read_csv(deaths_time_series)
     return df
 
 
 def recovered_report():
-    # Return time series version of recoveries globally
+    # Return time series version of total recoveries globally
     recovered_time_series = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
     df = pd.read_csv(recovered_time_series)
     return df 
