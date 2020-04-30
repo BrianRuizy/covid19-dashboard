@@ -7,7 +7,7 @@ from . import getdata
 from plotly.offline import plot
 from plotly.graph_objs import Layout
 import plotly.graph_objs as go
-from datetime import datetime
+import pandas as pd
 
 def index(request): 
     report_dict = report()
@@ -43,10 +43,7 @@ def growth_plot():
     df = getdata.realtime_growth()
     layout = Layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', template='plotly_dark', legend=dict(x=0.025,y=1), font=dict(color='#8898aa'), height=350,  margin=dict(t=0, l=15, r=10, b=0))
     fig = go.Figure(layout=layout)
-    domain = []
-    
-    for date in range(len(df.index)):
-        domain.append(datetime.strptime(df.index[date], '%m/%d/%y').strftime('%-m/%-d'))
+    domain = pd.to_datetime(df.index)
     
     confirmed = go.Scatter(x=domain, y=df.Confirmed, name='Confirmed', mode='lines', line=dict(width=4))
     recovered = go.Scatter(x=domain, y=df.Recovered, name='Recovered', mode='lines', line=dict(width=4))
