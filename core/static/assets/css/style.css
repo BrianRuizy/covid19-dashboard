@@ -18357,9 +18357,9 @@ table.sortable tbody tr::before {
   content: counter(sortabletablescope);
   counter-increment: sortabletablescope;
   display: table-cell;
-  text-align: center;
+  text-align: right;
   font-size: 11px;
-  padding: 14px 0px 0 8px;
+  padding: 17px 0px 0 0px;
   color: #cccfd2;
   background: transparent;
   border-top: 1px solid #e9ecef;
