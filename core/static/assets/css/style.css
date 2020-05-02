@@ -416,7 +416,7 @@ h1,
 
 h2,
 .h2 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 h3,
@@ -1988,7 +1988,7 @@ pre code {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  height: 315px;
+  height: 398px;
 }
 
 .table-responsive th, thead{
