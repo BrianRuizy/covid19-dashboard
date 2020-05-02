@@ -1988,7 +1988,7 @@ pre code {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  height: 398px;
+  height: 350px;
 }
 
 .table-responsive th, thead{
@@ -15462,6 +15462,10 @@ a.btn-icon-only {
 
 .card-stats .card-body {
   padding: 1rem 1.5rem;
+}
+
+.card-body.pyplot {
+  height: 350px;
 }
 
 .card-stats .card-status-bullet {
