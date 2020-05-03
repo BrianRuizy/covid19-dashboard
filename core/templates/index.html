@@ -10,22 +10,20 @@
 {% block content %}
 
     <!-- Nav top -->
-    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark bg-secondary" id="navbar-main">
       <div class="container-fluid">
-        <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block">Dashboard
-        <h5 class="text-muted">in development</h5></a>
+
       </div>
     </nav>
 
     {% include "includes/header.html" %}
 
 
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt--7 bg-secondary">
 
       <div class="row">
         <div class="col-xl-8 mb-5 mb-xl-0">
-          <div class="card bg-gradient-default shadow fade-in-left">
+          <div class="card bg-dark shadow fade-in-left">
             <div class="card-header bg-transparent">
               <div class="row align-items-center">
                 <div class="col">
@@ -58,7 +56,6 @@
                 {% endautoescape %}
               </div>
             </div>
-
           </div>
         </div>
         <div class="col-xl-4">
@@ -85,7 +82,6 @@
                     <th scope="col">Confirmed</th>
                     <th scope="col">Recovered</th>
                     <th scope="col">Deaths</th>
-                    <th scope="col">Active</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -95,7 +91,6 @@
                       <td>{{ row.Confirmed | intcomma }}</td>
                       <td>{{ row.Recovered | intcomma  }}</td>
                       <td>{{ row.Deaths | intcomma }}</td>
-                      <td>{{ row.Active | intcomma }}</td>
                   </tr>
                   {% endfor %}
                 </tbody>
