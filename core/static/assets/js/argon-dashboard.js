@@ -135,7 +135,7 @@ var $map = $('#map-canvas'),
   map,
   lat,
   lng,
-  color = "#5e72e4";
+  color = "#6236FF";
 
 function initMap() {
 
@@ -579,16 +579,16 @@ var Charts = (function() {
       600: '#8898aa',
       700: '#525f7f',
       800: '#32325d',
-      900: '#212529'
+      900: '#1A1053'
     },
     theme: {
       'default': '#172b4d',
-      'primary': '#5e72e4',
+      'primary': '#6236FF',
       'secondary': '#f4f5f7',
       'info': '#11cdef',
       'success': '#2dce89',
-      'danger': '#f5365c',
-      'warning': '#fb6340'
+      'danger': '#F9345E',
+      'warning': '#FA6400'
     },
     black: '#12263F',
     white: '#FFFFFF',
