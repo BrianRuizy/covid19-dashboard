@@ -21,7 +21,7 @@ def total_growth():
 
     return plot_div
     
-    
+
 def daily_growth():
     dcases = getdata.daily_cases()[['date', 'World']]
     ddeaths = getdata.daily_deaths()[['date', 'World']]
@@ -45,4 +45,21 @@ def daily_growth():
     plot_div = plot(fig, output_type='div', config={'displayModeBar': False})
     
     return plot_div
+    
+
+
+# def sparklines():
+#     df = getdata.realtime_growth()
+#     layout = Layout(paper_bgcolor='rgba(0,0,0,0)',  plot_bgcolor='rgba(0,0,0,0)', xaxis=dict(showgrid=False, visible=False), yaxis=dict(showgrid=False, visible=False, type='log'), margin=dict(t=0, l=15, r=10, b=0),  height=310)
+
+#     confirmed = go.Figure(go.Scatter(x=df.index, y=df.Confirmed, mode='lines', line=dict(width=4), fill='toself', fillcolor='rgba(98,54,255,.1)'), layout=layout)
+#     recovered = go.Figure(go.Scatter(x=df.index, y=df.Recovered, mode='lines', line=dict(width=4), fill='toself', marker_color='rgb(93,201,154)', fillcolor='rgba(93,201,154,.1)'), layout=layout)
+#     deaths = go.Figure(go.Scatter(x=df.index, y=df.Deaths, mode='lines', line=dict(width=4), fill='toself', marker_color='#f5365c', fillcolor='rgba(226,72,97,.1)'), layout=layout)
+    
+    
+#     confirmed.write_image('/static/img/confirmed_sparkline.svg')
+#     # fig.add_traces([confirmed, deaths, recovered])
+#     plot_div = plot(fig, output_type='div', config={'displayModeBar': False})
+
+#     return plot_div
     

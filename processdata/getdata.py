@@ -1,6 +1,5 @@
 # ©Brian Ruiz, @brianruizy
 # Created: 03-15-2020
-import numpy as np
 import pandas as pd
 import datetime
 
