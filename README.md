@@ -19,23 +19,6 @@
 
 The goal of this project is not to build *just another dashboard*. But, to focus on collaborative plot ideas, and emphasize mobile responsiveness. Feel free to open an issue requesting a type of plot, table, or any feature for that matter. Join the repo's [Gitter chat](https://gitter.im/ncov-dashboard/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link).
 
-## Setup
-
-Fork this repo, and clone to your local machine. Create your virtual Python environment, where you will install the requisite package dependencies. 
-<h1 align="left">
-    <img alt="setup" width="70%" src="https://github.com/BrianRuizy/covid-19-dashboard/blob/master/core/static/assets/img/setup.png">
-</h1>
-
-
-## Deployment
-
-The app is provided with a basic configuration to be executed in [Heroku](https://heroku.com/).
-
-Heroku app is already configured to this GitHub repo, for *automatic deploys* from any push to the **master** branch. Create a pull request containing your respective changes and wait for approval/merge. 
-<h1 align="left">
-    <img alt="deploy" width="70%" src="https://github.com/BrianRuizy/covid-19-dashboard/blob/master/core/static/assets/img/deploy.png"
-</h1>
-
 ## Contributors 
 
 [![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/0)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/0)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/1)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/1)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/2)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/2)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/3)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/3)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/4)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/4)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/5)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/5)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/6)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/6)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/images/7)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/nCoV-dashboard/links/7)
@@ -49,6 +32,22 @@ Heroku app is already configured to this GitHub repo, for *automatic deploys* fr
 
 * Johns Hopkins University: [CSSE](https://systems.jhu.edu/) 2019-ncov data repository, found [here](https://github.com/CSSEGISandData/COVID-19).
 * Our World in Data: [OWID](https://ourworldindata.org/) Github Data repository, found [here](https://github.com/owid/covid-19-data/tree/master/public/data).
+
+## Setup
+
+Fork this repo, and clone to your local machine. Create your virtual Python environment, where you will install the requisite package dependencies. 
+<h1 align="left">
+    <img alt="setup" width="60%" src="https://github.com/BrianRuizy/covid-19-dashboard/blob/master/core/static/assets/img/setup.png">
+</h1>
+
+## Deployment
+
+The app is provided with a basic configuration to be executed in [Heroku](https://heroku.com/).
+
+Heroku app is already configured to this GitHub repo, for *automatic deploys* from any push to the **master** branch. Create a pull request containing your respective changes and wait for approval/merge. 
+<h1 align="left">
+    <img alt="deploy" width="60%" src="https://github.com/BrianRuizy/covid-19-dashboard/blob/master/core/static/assets/img/deploy.png"
+</h1>
 
 ## License
 
