@@ -1,12 +1,22 @@
 # ©Brian Ruiz, @brianruizy
 # Created: 03-15-2020
 import pandas as pd
+import platform
 import datetime
 
 
 # Datasets scraped can be found in the following URL's:
 # https://github.com/CSSEGISandData/COVID-19 
 # https://github.com/owid/covid-19-data/tree/master/public/data
+
+
+# Different styles in zero-padding in date depend on operating systems
+if platform.system() == 'Linux':
+    STRFTIME_DATA_FRAME_FORMAT = '%-m/%-d/%y'
+elif platform.system() == 'Windows':
+    STRFTIME_DATA_FRAME_FORMAT = '%#m/%#d/%y'
+else:
+    STRFTIME_DATA_FRAME_FORMAT = '%-m/%-d/%y'
 
 
 def daily_report(date_string=None):
@@ -78,14 +88,14 @@ def realtime_growth(date_string=None, weekly=False, monthly=False):
     
     if weekly is True: 
         weekly_df = pd.DataFrame([])
-        intervals = pd.date_range(end=yesterday, periods=8, freq='7D').strftime('%-m/%-d/%y').tolist()
+        intervals = pd.date_range(end=yesterday, periods=8, freq='7D').strftime(STRFTIME_DATA_FRAME_FORMAT).tolist()
         for day in intervals:
             weekly_df = weekly_df.append(growth_df.loc[growth_df.index==day])
         return weekly_df
     
     elif monthly is True:
         monthly_df = pd.DataFrame([])
-        intervals = pd.date_range(end=yesterday, periods=3, freq='1M').strftime('%-m/%-d/%y').tolist()
+        intervals = pd.date_range(end=yesterday, periods=3, freq='1M').strftime(STRFTIME_DATA_FRAME_FORMAT).tolist()
         for day in intervals:
             monthly_df = monthly_df.append(growth_df.loc[growth_df.index==day])
         return monthly_df
@@ -115,4 +125,3 @@ def cases_table():
     df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
     
     return df
-
