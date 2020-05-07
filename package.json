@@ -1,7 +1,7 @@
 {
-  "name": "django-dashboard-argon",
+  "name": "covid-19-dashboard",
   "version": "1.0.1",
-  "description": "A simple UI-Ready Django boilerplate.",
+  "description": "A Django Corona Virus dashboard web-app",
   "scripts": {
     "lint": "eslint ."
   },
@@ -14,16 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/app-generator/django-dashboard-argon"
+    "url": "https://github.com/BrianRuizy/covid-19-dashboard"
   },
   "keywords": [
     "django",
     "admin-panel",
     "open-source"
   ],
-  "author": "AppSeed.us",
+  "author": "Brian Ruiz",
   "contributors": [
-    "AppSeed Support <support@appseed.us>"
+    "Brian Ruiz"
   ],
   "license": "MIT"
 }
