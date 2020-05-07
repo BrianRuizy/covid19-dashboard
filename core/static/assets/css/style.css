@@ -14605,14 +14605,6 @@ button.section-darker:focus {
   letter-spacing: 0.125rem;
 }
 
-.text-blue {
-  color: #6236FF !important;
-}
-
-a.text-blue:hover,
-a.text-blue:focus {
-  color: #324cdd !important;
-}
 
 .text-indigo {
   color: #5603ad !important;
@@ -15990,7 +15982,6 @@ textarea[resize="horizontal"] {
   height: 19px;
   line-height: 19px;
   text-align: center;
-  font-family: 'NucleoIcons';
   display: inline-block;
   position: absolute;
   right: 15px;
