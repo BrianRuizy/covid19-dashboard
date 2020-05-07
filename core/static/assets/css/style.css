@@ -92,7 +92,7 @@ body {
   line-height: 1.5;
   color: #525f7f;
   text-align: left;
-  background-color: #1A1053;
+  background-color: #f9f9ff;
 }
 
 [tabindex="-1"]:focus {
@@ -635,11 +635,6 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
-
-.container-fluid.mt--7 {
-  margin-bottom: -50px;
-  border-bottom-left-radius: 2rem;
 }
 
 .row {
@@ -15577,9 +15572,7 @@ a.btn-icon-only {
 }
 
 @media (min-width: 768px) {
-  .main-content .navbar-top {
-  border-top-left-radius: 2rem;
-  }
+
   .main-content .container-fluid {
     padding-left: 39px !important;
     padding-right: 39px !important;
@@ -15843,7 +15836,7 @@ a.btn-icon-only {
 
 .footer {
   background: #f9f9ff;
-  padding: 2.5rem 0;
+  padding-top: 1rem;
 }
 
 .footer .col-footer .heading {
@@ -16088,7 +16081,6 @@ textarea[resize="horizontal"] {
 
 .header {
   position: relative;
-  border-top-left-radius: 2rem;
 }
 
 .icon {
@@ -17491,62 +17483,6 @@ textarea[resize="horizontal"] {
     left: 50%;
     transform: translateX(-50%);
   }
-}
-
-.navbar-search .input-group {
-  border-radius: 2rem;
-  border: 2px solid;
-  background-color: transparent;
-}
-
-.navbar-search .input-group .input-group-text {
-  background-color: transparent;
-  padding-left: 1rem;
-}
-
-.navbar-search .form-control {
-  width: 270px;
-  background-color: transparent;
-}
-
-.navbar-search-dark .input-group {
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-.navbar-search-dark .input-group-text {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.navbar-search-dark .form-control {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.navbar-search-dark .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.navbar-search-dark .focused .input-group {
-  border-color: rgba(255, 255, 255, 0.9);
-}
-
-.navbar-search-light .input-group {
-  border-color: rgba(0, 0, 0, 0.6);
-}
-
-.navbar-search-light .input-group-text {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.navbar-search-light .form-control {
-  color: rgba(0, 0, 0, 0.9);
-}
-
-.navbar-search-light .form-control::placeholder {
-  color: rgba(0, 0, 0, 0.6);
-}
-
-.navbar-search-light .focused .input-group {
-  border-color: rgba(0, 0, 0, 0.9);
 }
 
 @media (min-width: 768px) {
@@ -20533,23 +20469,7 @@ pre>code.highlight {
   }
 }
 
-.ct-search {
-  position: relative;
-  padding: 1rem 15px;
-  margin-right: -15px;
-  margin-left: -15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
 
-.ct-search .form-control:focus {
-  border-color: #9da9f2;
-  box-shadow: 0 0 0 3px rgba(157, 169, 242, 0.25);
-}
-
-.ct-search-docs-toggle {
-  line-height: 1;
-  color: #1A1053;
-}
 
 .ct-sidenav {
   display: none;
