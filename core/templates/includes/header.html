@@ -1,4 +1,5 @@
 {% load humanize %}
+{% load trend %}
 
 <!-- Header -->
 <div class="header pb-8 pt-5 pt-md-7 bg-secondary">
@@ -21,7 +22,7 @@
                     </div>
                 </div>
                 <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-danger mr-2"><i class="fa fa-angle-up"></i> {{ confirmed_trend | floatformat:"0" }}%</span>
+                    <span class="{% color 'confirmed' confirmed_trend %} mr-2"><i class="{% arrow 'confirmed' confirmed_trend %}"></i> {{ confirmed_trend | floatformat:"0" }}%</span>
                     <span class="text-nowrap">Since last week</span>
                 </p>
                 </div>
@@ -42,7 +43,7 @@
                     </div>
                 </div>
                 <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-angle-up"></i> {{ recovered_trend | floatformat:"0" }}%</span>
+                    <span class="{% color 'recovered' recovered_trend %} mr-2"><i class="{% arrow 'recovered' recovered_trend %}"></i> {{ recovered_trend | floatformat:"0" }}%</span>
                     <span class="text-nowrap">Since last week</span>
                 </p>
                 </div>
@@ -63,7 +64,7 @@
                     </div>
                 </div>
                 <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-danger mr-2"><i class="fa fa-angle-up"></i> {{ deaths_trend | floatformat:"0" }}%</span>
+                    <span class="{% color 'deaths' deaths_trend %} mr-2"><i class="{% arrow 'deaths' deaths_trend %}"></i> {{ deaths_trend | floatformat:"0" }}%</span>
                     <span class="text-nowrap">Since last week</span>
                 </p>
                 </div>
@@ -84,7 +85,7 @@
                     </div>
                 </div>
                 <p class="mt-3 mb-0 text-muted text-sm">
-                    <span class="text-danger mr-2"><i class="fa fa-angle-up"></i> {{ death_rate_trend }}</span>
+                    <span class="{% color 'death_rate' death_rate_trend %} mr-2"><i class="{% arrow 'death_rate' death_rate_trend %}"></i> {{ death_rate_trend }}</span>
                     <span class="text-nowrap">Since last week</span>
                 </p>
                 </div>
