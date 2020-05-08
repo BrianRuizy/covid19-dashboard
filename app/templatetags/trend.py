@@ -10,7 +10,7 @@ ARROW_DOWN = "fa fa-angle-down"
 
 CONDITIONS = {
     'death_rate': {
-        "GT_0": (RED, ARROW_DOWN),
+        "GT_0": (RED, ARROW_UP),
         "LT_0": (GREEN, ARROW_DOWN)
     },
     'recovered': {
