@@ -1,14 +1,13 @@
 # ©Brian Ruiz, @brianruizy
 # Created: 03-15-2020
-import pandas as pd
-import platform
 import datetime
+import platform
 
+import pandas as pd
 
 # Datasets scraped can be found in the following URL's:
 # https://github.com/CSSEGISandData/COVID-19 
 # https://github.com/owid/covid-19-data/tree/master/public/data
-
 
 # Different styles in zero-padding in date depend on operating systems
 if platform.system() == 'Linux':
@@ -34,7 +33,7 @@ def daily_report(date_string=None):
     return df
 
 
-def daily_cases():
+def daily_confirmed():
     # returns the daily reported cases for respective date, 
     # segmented globally and by country
     df = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/ecdc/new_cases.csv')
@@ -66,10 +65,13 @@ def recovered_report():
 
 
 def realtime_growth(date_string=None, weekly=False, monthly=False):
-    """[summary]: returns dataframe of real time global growth.
-    If passing date_string argument, must use following date formatting '4/12/20'.
+    """[summary]: consolidates all reports, to create time series of statistics.
     Columns excluded with list comp. are: ['Province/State','Country/Region','Lat','Long'].
 
+    Args:
+        date_string: must use following date formatting '4/12/20'.
+        weekly: bool, returns df for last 8 weks
+        monthly: bool, returns df for last 3 months
     Returns:
         [growth_df] -- [growth in series]
     """ 
@@ -104,9 +106,10 @@ def realtime_growth(date_string=None, weekly=False, monthly=False):
 
 
 def percentage_trends():
-    """[summary]: Returns percantage of trend, relative to week prior delta
+    """[summary]: Returns percentage of change, in comparison to week prior.
+    
     Returns:
-        [dataframe] -- [percentage objects]
+        [pd.series] -- [percentage objects]
     """    
     current = realtime_growth(weekly=True).iloc[-1]
     last_week = realtime_growth(weekly=True).iloc[-2]
@@ -119,9 +122,15 @@ def percentage_trends():
 
 
 def cases_table():
+    """[summary]: Creates a table on total statistics of all countries,
+    sorted by confirmations.
+
+    Returns:
+        [pd.DataFrame]
+    """
     df = daily_report()[['Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
     df.rename(columns={'Country_Region':'Country'}, inplace=True) 
-    df = df.groupby('Country', as_index=False).sum()
+    df = df.groupby('Country', as_index=False).sum()  # Dataframe mapper, combines rows where country value is the same
     df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
     
     return df
