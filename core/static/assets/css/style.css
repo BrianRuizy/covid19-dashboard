@@ -4980,9 +4980,25 @@ input[type="button"].btn-block {
   padding: 1.5rem;
 }
 
-.card-body.pyplot .icon{
+.card-body.plotly .icon{
   width: 1rem;
   height: 1rem;
+}
+
+.card-body.plotly.worldmap {
+  padding: 0;
+  overflow: hidden;
+  background-color: #d4dadc;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-radius: 1rem;
+  height: 450px;
+}
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
 }
 
 .card-title {
@@ -15463,7 +15479,7 @@ a.btn-icon-only {
   padding: 1rem 1.5rem;
 }
 
-.card-body.pyplot {
+.card-body.plotly {
   height: 350px;
 }
 
