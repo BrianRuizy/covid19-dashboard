@@ -1,8 +1,11 @@
 # Covid 19 Interactive Dashboard
 
+[![Made with Pthon](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Gitter](https://badges.gitter.im/ncov-dashboard/community.svg)](https://gitter.im/ncov-dashboard/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![MIT License](https://camo.githubusercontent.com/a307f74a14e41e762300323414ddef81f3d53ae2/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f736f757263657265722d696f2f736f757263657265722d6170702e7376673f636f6c6f72423d666630303030)](https://github.com/BrianRuizy/covid-19-dashboard/blob/master/LICENSE.md)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![MIT License](https://camo.githubusercontent.com/a307f74a14e41e762300323414ddef81f3d53ae2/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f736f757263657265722d696f2f736f757263657265722d6170702e7376673f636f6c6f72423d666630303030)](https://github.com/BrianRuizy/covid-19-dashboard/blob/master/LICENSE.md)
+
+
 
 ![Dashboard screenshot](https://github.com/BrianRuizy/covid-19-dashboard/blob/master/core/static/assets/img/covid-19-mockup-min.png)
 
