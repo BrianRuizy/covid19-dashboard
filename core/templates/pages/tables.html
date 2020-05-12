@@ -671,4 +671,10 @@
 {% endblock content %}
 
 <!-- Specific JS goes HERE --> 
-{% block javascripts %}{% endblock javascripts %}
+{% block javascripts %}
+
+<script>
+$('.nav-item a').removeClass('active');
+$('.tables-item a').addClass('active');
+</script>
+{% endblock javascripts %}
