@@ -127,4 +127,6 @@ STATICFILES_DIRS = (
 #############################################################
 
 # Activate Django-Heroku.
+# "Django-Heroku sets Test Runner that operates on database if it detects a CI environment, which disrupts sqlite"
+# - https://tinyurl.com/ydewzvwk
 django_heroku.settings(locals(), test_runner=False)
