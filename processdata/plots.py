@@ -31,35 +31,33 @@ def total_growth():
         yaxis_type='log',
         xaxis_showgrid=False,
         template='plotly_dark',
-        legend=dict(x=0.025, y=1),
+        showlegend=False,
         font=dict(color='#8898aa'),
         height=310,
-        margin=dict(t=0, l=15, r=10, b=0)
+        margin=dict(t=0, l=10, r=10, b=0)
     )
     fig = go.Figure(layout=layout)
 
     fig.update_layout(
         updatemenus=[
             dict(
-                type="buttons",
-                direction="left",
+                type="dropdown",
+                # direction="left",
                 buttons=list([
                     dict(
                         args=[{"yaxis.type": "log"}],
-                        label="logarithmic",
+                        label="Logarithmic",
                         method="relayout"
                     ),
                     dict(
                         args=[{"yaxis.type": "linear"}],
-                        label="linear",
+                        label="Linear",
                         method="relayout"
                     )
                 ]),
-                showactive=True,
-                x=0.75,
-                xanchor="right",
-                y=1.2,
-                yanchor="top"
+                x=0.05,
+                xanchor='auto',
+                bgcolor='rgba(0,0,0,0)'
             ),
         ]
     )
@@ -98,7 +96,7 @@ def daily_growth():
             ]))
         )
     
-    fig.update_yaxes(gridcolor='#e9ecef')
+    fig.update_yaxes(gridcolor='#fff')
     fig.add_traces([daily_cases_trace, daily_deaths_trace])
     plot_div = plot(fig, output_type='div', config={'displayModeBar': False})
     
@@ -113,7 +111,7 @@ def worldmap():
 
     df = getdata.daily_report()
     fig = px.scatter_mapbox(df, 
-            lat="Lat", lon="Long_", color='Deaths', hover_name="Country_Region", hover_data=["Combined_Key","Confirmed"],
+            lat="Lat", lon="Long_", color='Confirmed', hover_name="Country_Region", hover_data=["Combined_Key","Confirmed"],
             size='Confirmed', zoom=1, labels={'Combined_Key':'loc'}, center = {"lat": 20.0, "lon": -20.0}, height=450,)
 
     fig.update_layout(mapbox_style='carto-positron', paper_bgcolor='rgba(0,0,0,0)', margin=dict(t=0, l=0, r=0, b=0))

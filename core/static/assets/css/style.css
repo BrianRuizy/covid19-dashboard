@@ -18328,6 +18328,10 @@ table.sortable tbody tr::before {
   border-top: 1px solid #e9ecef;
 }
 
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after { 
+  content: " \25B4\25BE" 
+}
+
 .table thead th {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;

@@ -17,7 +17,7 @@ def index(request):
     context = dict(report_dict, **trends_dict, **growth_dict, **daily_growth, **cases_dict, **worldmap_dict)
 
     return render(request, template_name='index.html', context=context)
-
+    
 
 def report():
     df = getdata.daily_report(date_string=None)
