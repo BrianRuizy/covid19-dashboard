@@ -15,6 +15,7 @@ from . import getdata
 # file for creation of plotly figures(figs)
 # you can use the plotly builtin fig.show() method to plot locally
 
+
 def total_growth():
     """[summary] Plots cumulative growth in a logarithmic y-scale
     Reference: https://plotly.com/python/line-and-scatter/
@@ -24,8 +25,44 @@ def total_growth():
     """
     df = getdata.realtime_growth()
     dates = pd.to_datetime(df.index)
-    layout = Layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', yaxis_type='log', xaxis_showgrid=False, template='plotly_dark',  legend=dict(x=0.025, y=1),  font=dict(color='#8898aa'),  height=310, margin=dict(t=0, l=15, r=10, b=0))
+    layout = Layout(
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        yaxis_type='log',
+        xaxis_showgrid=False,
+        template='plotly_dark',
+        legend=dict(x=0.025, y=1),
+        font=dict(color='#8898aa'),
+        height=310,
+        margin=dict(t=0, l=15, r=10, b=0)
+    )
     fig = go.Figure(layout=layout)
+
+    fig.update_layout(
+        updatemenus=[
+            dict(
+                type="buttons",
+                direction="left",
+                buttons=list([
+                    dict(
+                        args=[{"yaxis.type": "log"}],
+                        label="logarithmic",
+                        method="relayout"
+                    ),
+                    dict(
+                        args=[{"yaxis.type": "linear"}],
+                        label="linear",
+                        method="relayout"
+                    )
+                ]),
+                showactive=True,
+                x=0.75,
+                xanchor="right",
+                y=1.2,
+                yanchor="top"
+            ),
+        ]
+    )
     
     confirmed_trace = go.Scatter(x=dates, y=df.Confirmed, name='Confirmed', mode='lines', line=dict(width=4))
     recovered_trace = go.Scatter(x=dates, y=df.Recovered, name='Recovered', mode='lines', line=dict(width=4))
