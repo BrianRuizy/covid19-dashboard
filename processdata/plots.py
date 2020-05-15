@@ -115,7 +115,7 @@ def worldmap():
             size='Confirmed', zoom=1, labels={'Combined_Key':'loc'}, center = {"lat": 20.0, "lon": -20.0}, height=450,)
 
     fig.update_layout(mapbox_style='carto-positron', paper_bgcolor='rgba(0,0,0,0)', margin=dict(t=0, l=0, r=0, b=0))
-    plot_div = plot(fig, output_type='div', config={'displayModeBar': False})
+    plot_div = plot(fig, include_plotlyjs=False, output_type='div', config={'displayModeBar': False})
     
     return plot_div
 
