@@ -29,7 +29,7 @@ def daily_report(date_string=None):
     else: 
         file_date = date_string 
     
-    df = pd.read_csv(report_directory + file_date + '.csv')
+    df = pd.read_csv(report_directory + file_date + '.csv', dtype={"FIPS": str})
     return df
 
 
