@@ -20,7 +20,7 @@
             <div class="card-body plotly worldmap">
               <div class="chart">
                 {% autoescape off %}
-                {{ worldmap }}
+                {{ world_map }}
                 {% endautoescape %}
               </div>
             </div>
@@ -100,7 +100,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for i, row in cases_table.iterrows %}
+                  {% for i, row in global_cases.iterrows %}
                   <tr>
                       <td class="font-weight-bold" >{{ row.Country | truncatechars:14 }}</td>
                       <td>{{ row.Confirmed | intcomma }}</td>

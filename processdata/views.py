@@ -11,10 +11,10 @@ def index(request):
     trends_dict = trends()
     growth_dict = growth_plot()
     daily_growth = daily_growth_plot()
-    worldmap_dict = worldmap()
-    cases_dict = cases_table()
+    world_map_dict = world_map()
+    cases_dict = global_cases()
     
-    context = dict(report_dict, **trends_dict, **growth_dict, **daily_growth, **cases_dict, **worldmap_dict)
+    context = dict(report_dict, **trends_dict, **growth_dict, **daily_growth, **cases_dict, **world_map_dict)
 
     return render(request, template_name='index.html', context=context)
     
@@ -44,9 +44,9 @@ def growth_plot():
     return {'growth_plot': plot_div}
     
 
-def cases_table():
-    df = getdata.cases_table()
-    return {'cases_table': df}
+def global_cases():
+    df = getdata.global_cases()
+    return {'global_cases': df}
 
 
 def daily_growth_plot():
@@ -54,7 +54,7 @@ def daily_growth_plot():
     return {'daily_growth_plot': plot_div}
     
 
-def worldmap():
-    plot_div = plots.worldmap()
-    return {'worldmap': plot_div}
+def world_map():
+    plot_div = plots.world_map()
+    return {'world_map': plot_div}
 
