@@ -104,13 +104,13 @@ def world_map():
     # Reference: https://plotly.com/python/reference/#scattermapbox
     df = getdata.daily_report()
     fig = px.scatter_mapbox(df, 
-            lat='Lat', lon='Long_', 
-            color='Confirmed', 
-            size='Confirmed', 
-            hover_name='Country_Region', 
-            hover_data=['Combined_Key','Confirmed'],
-            labels={'Combined_Key':'loc'}, 
-            zoom=1, 
+            lat = 'Lat', lon='Long_', 
+            color = 'Confirmed', 
+            size = 'Confirmed', 
+            hover_name = 'Country_Region', 
+            hover_data = ['Combined_Key','Confirmed'],
+            labels ={ 'Combined_Key':'loc'}, 
+            zoom = 1, 
             center = {'lat': 20.0, 'lon': -20.0}, height=450
     )
 
@@ -131,20 +131,20 @@ def usa_map():
     
     fig = go.Figure(
         go.Choroplethmapbox(
-            geojson=counties, 
-            locations=df.fips,
+            geojson = counties, 
+            locations = df.fips,
             z = df['cases/capita'],
-            marker_opacity=0.8,
-            marker_line_width=0,
-            colorscale=[[0, '#FFE9E6'], [0.15, '#DA3A03'], [.50, '#331112'], [1.0, ']]
+            marker_opacity = 0.75,
+            marker_line_width = 0,
+            colorscale = [[0, '#FFFAF4'], [.005, '#FFE4CC'], [.030, '#DC654F'], [.060, '#CA3328'], [.080, '#B80000'], [.100, '#7C100C'], [.150, '#580000'], [.175, '#300000'], [1, '#170707']]
         )
     )
     
     fig.update_layout(
-        mapbox_style='carto-positron', 
+        mapbox_style = 'carto-positron', 
         mapbox_zoom=2.75, 
         mapbox_center = {'lat': 37.0902, 'lon': -95.7129}, 
-        margin=dict(t=0, l=0, r=0, b=0)
+        margin = dict(t=0, l=0, r=0, b=0)
     )
     
     return None
