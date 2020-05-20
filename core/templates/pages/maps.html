@@ -7,9 +7,19 @@
     <div class="container-fluid pt-6 bg-secondary">
 
       <div class="row">
-        <div class="col">
-          <div class="card shadow border-0">
-            <div id="map-canvas" class="map-canvas" data-lat="40.748817" data-lng="-73.985428" style="height: 600px;"></div>
+        <div class="col-xl-12 mb-5 mb-xl-0">  <!-- Global interactive Plotly Mabpox -->
+          <div class="card shadow fade-in-bottom">
+            <div class="card-body plotly worldmap">
+              <div class="chart">
+                {% autoescape off %}
+                {{ usa_map }}
+                {% endautoescape %}
+              </div>
+            </div>
+            <div style="position: absolute; padding:1.25rem 1.5rem;">
+                <h6 class="text-uppercase text-muted ls-1 mb-1">USA Counties | Per Capita</h6>
+                <h2 class="text-dark mb-0">Per 100k Residents</h2>
+            </div>
           </div>
         </div>
       </div>

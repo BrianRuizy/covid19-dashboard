@@ -6,8 +6,9 @@ import platform
 import pandas as pd
 
 # Datasets scraped can be found in the following URL's:
-# https://github.com/CSSEGISandData/COVID-19 
-# https://github.com/owid/covid-19-data/tree/master/public/data
+# ¹ Johns Hopkins: https://github.com/CSSEGISandData/COVID-19 
+# ² Our World In Data: https://github.com/owid/covid-19-data/tree/master/public/data
+# ³ New York Times: https://github.com/nytimes/covid-19-data
 
 # Different styles in zero-padding in date depend on operating systems
 if platform.system() == 'Linux':
@@ -29,7 +30,7 @@ def daily_report(date_string=None):
     else: 
         file_date = date_string 
     
-    df = pd.read_csv(report_directory + file_date + '.csv')
+    df = pd.read_csv(report_directory + file_date + '.csv', dtype={"FIPS": str})
     return df
 
 
@@ -41,7 +42,7 @@ def daily_confirmed():
 
 
 def daily_deaths():
-    # returns the daily reported deaths for respective date, 
+    # returns the daily reported deaths for respective date
     df = pd.read_csv('https://covid.ourworldindata.org/data/ecdc/new_deaths.csv')
     return df
 
@@ -121,7 +122,7 @@ def percentage_trends():
     return trends
 
 
-def cases_table():
+def global_cases():
     """[summary]: Creates a table on total statistics of all countries,
     sorted by confirmations.
 
@@ -133,4 +134,20 @@ def cases_table():
     df = df.groupby('Country', as_index=False).sum()  # Dataframe mapper, combines rows where country value is the same
     df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
     
+    return df
+
+def usa_counties():
+    """[summary]: Returns live cases of USA at county-level
+    
+    source:
+        ³ nytimes
+    Returns:
+        [pd.DataFrame]
+    """
+    populations = pd.read_csv('https://raw.githubusercontent.com/balsama/us_counties_data/master/data/counties.csv')[['FIPS Code', 'Population']]
+    populations.rename(columns={'FIPS Code': 'fips'}, inplace=True)
+    df = pd.read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv', dtype={"fips": str}).iloc[:,:6]
+    df = pd.merge(df, populations, on='fips')
+    df['cases/capita'] = (df.cases / df.Population)*100000 # per 100k residents
+
     return df

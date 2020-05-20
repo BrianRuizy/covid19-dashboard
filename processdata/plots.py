@@ -1,19 +1,12 @@
-# Standard library imports
-import json 
-from urllib.request import urlopen
-
-# Third party imports
+# File for creation of plotly figures(figs).
+# You can use the plotly builtin fig.show() method to plot locally.
 import pandas as pd 
 import plotly.express as px
 import plotly.graph_objs as go
 from plotly.graph_objs import Layout
 from plotly.offline import plot
 
-# Local application imports
 from . import getdata
-
-# file for creation of plotly figures(figs)
-# you can use the plotly builtin fig.show() method to plot locally
 
 
 def total_growth():
@@ -41,18 +34,17 @@ def total_growth():
     fig.update_layout(
         updatemenus=[
             dict(
-                type="dropdown",
-                # direction="left",
+                type='dropdown',
                 buttons=list([
                     dict(
-                        args=[{"yaxis.type": "log"}],
-                        label="Logarithmic",
-                        method="relayout"
+                        args=[{'yaxis.type': 'log'}],
+                        label='Logarithmic',
+                        method='relayout'
                     ),
                     dict(
-                        args=[{"yaxis.type": "linear"}],
-                        label="Linear",
-                        method="relayout"
+                        args=[{'yaxis.type': 'linear'}],
+                        label='Linear',
+                        method='relayout'
                     )
                 ]),
                 x=0.05,
@@ -102,20 +94,3 @@ def daily_growth():
     
     return plot_div
     
-
-def worldmap():
-    # Use following Mapbox token to acces further styling features.
-    # Reference: https://plotly.com/python/reference/#scattermapbox
-    
-    # px.set_mapbox_access_token(open(".mapbox_token").read(''))
-
-    df = getdata.daily_report()
-    fig = px.scatter_mapbox(df, 
-            lat="Lat", lon="Long_", color='Confirmed', hover_name="Country_Region", hover_data=["Combined_Key","Confirmed"],
-            size='Confirmed', zoom=1, labels={'Combined_Key':'loc'}, center = {"lat": 20.0, "lon": -20.0}, height=450,)
-
-    fig.update_layout(mapbox_style='carto-positron', paper_bgcolor='rgba(0,0,0,0)', margin=dict(t=0, l=0, r=0, b=0))
-    plot_div = plot(fig, include_plotlyjs=False, output_type='div', config={'displayModeBar': False})
-    
-    return plot_div
-
