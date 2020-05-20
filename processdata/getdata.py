@@ -6,9 +6,9 @@ import platform
 import pandas as pd
 
 # Datasets scraped can be found in the following URL's:
-# Johns Hopkins: https://github.com/CSSEGISandData/COVID-19 
-# OurWorldInData: https://github.com/owid/covid-19-data/tree/master/public/data
-# New York Times: https://github.com/nytimes/covid-19-data
+# ¹ Johns Hopkins: https://github.com/CSSEGISandData/COVID-19 
+# ² Our World In Data: https://github.com/owid/covid-19-data/tree/master/public/data
+# ³ New York Times: https://github.com/nytimes/covid-19-data
 
 # Different styles in zero-padding in date depend on operating systems
 if platform.system() == 'Linux':
@@ -137,8 +137,13 @@ def global_cases():
     return df
 
 def usa_counties():
-    # Returns live cases of USA at county-level
-    # src: nytimes
+    """[summary]: Returns live cases of USA at county-level
+    
+    source:
+        ³ nytimes
+    Returns:
+        [pd.DataFrame]
+    """
     populations = pd.read_csv('https://raw.githubusercontent.com/balsama/us_counties_data/master/data/counties.csv')[['FIPS Code', 'Population']]
     populations.rename(columns={'FIPS Code': 'fips'}, inplace=True)
     df = pd.read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv', dtype={"fips": str}).iloc[:,:6]

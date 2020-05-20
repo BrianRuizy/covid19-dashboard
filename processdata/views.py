@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template import loader
 
-from . import getdata, plots
+from . import getdata, plots, maps
 
 
 def index(request): 
@@ -55,6 +55,10 @@ def daily_growth_plot():
     
 
 def world_map():
-    plot_div = plots.world_map()
+    plot_div = maps.world_map()
     return {'world_map': plot_div}
 
+
+def mapspage(request):
+    plot_div = maps.usa_map()
+    return render(request, template_name='pages/maps.html', context={'usa_map': plot_div})
