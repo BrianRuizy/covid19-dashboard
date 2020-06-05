@@ -1,5 +1,5 @@
 # Covid 19 Interactive Dashboard
-[![Build Status](https://travis-ci.com/BrianRuizy/covid-19-dashboard.svg?branch=master)](https://travis-ci.com/BrianRuizy/covid-19-dashboard)
+[![Build Status](https://travis-ci.com/BrianRuizy/covid19-dashboard.svg?branch=master)](https://travis-ci.com/BrianRuizy/covid19-dashboard)
 [![Made with Pthon](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Gitter](https://badges.gitter.im/ncov-dashboard/community.svg)](https://gitter.im/ncov-dashboard/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
