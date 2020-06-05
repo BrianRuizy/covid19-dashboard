@@ -1,7 +1,7 @@
 import os
 from decouple import config
 from unipath import Path
-import django_heroku
+# import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -125,8 +125,3 @@ STATICFILES_DIRS = (
 )
 #############################################################
 #############################################################
-
-# Activate Django-Heroku.
-# "Django-Heroku sets Test Runner that operates on database if it detects a CI environment, which disrupts sqlite"
-# - https://tinyurl.com/ydewzvwk
-django_heroku.settings(locals(), test_runner=False)
