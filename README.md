@@ -50,7 +50,9 @@ cd covid-19-dashboard/
 
 ```bash
 python -m venv env
-source env/bin/activate
+
+source env/bin/activate  # Linux/Mac
+env/Scripts/activate  # Windows
 ```
 
 4. Install dependencies
