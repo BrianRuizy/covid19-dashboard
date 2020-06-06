@@ -23,7 +23,7 @@ The goal of this project is not to build *just another dashboard*. But, to focus
 
 ### Prerequisites
 
-* Python 3.7; [pyenv](https://github.com/pyenv/pyenv) reccomended
+* Python; [pyenv](https://github.com/pyenv/pyenv) recommended
 * Pip
 
 ### Installing
