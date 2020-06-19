@@ -76,7 +76,7 @@ def daily_growth():
     layout = Layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)', legend=dict(x=0.025, y=1), height=310, margin=dict(t=0, l=15, r=10, b=0), barmode='stack')
     fig = go.Figure(layout=layout)
     daily_deaths_trace = go.Bar(x=daily_deaths.date, y=daily_deaths.World, name='Deaths', marker_color='#f5365c')
-    daily_cases_trace = go.Bar(x=daily_cases.date, y=daily_cases.World, name='Cases', visible='legendonly')
+    daily_cases_trace = go.Bar(x=daily_cases.date, y=daily_cases.World, name='Confirmed', visible='legendonly')
     
     fig.update_xaxes(
         rangeselector=dict(
