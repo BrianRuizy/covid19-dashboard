@@ -11,9 +11,7 @@
 
     {% include "includes/header.html" %}
 
-
     <div class="container-fluid mt--7 bg-secondary">
-
       <div class="row">
         <div class="col-xl-8 mb-5 mb-xl-0">  <!-- Global interactive Plotly Mabpox -->
           <div class="card shadow fade-in-bottom">
@@ -36,7 +34,15 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-uppercase text-light ls-1 mb-1">Global | Cumulative</h6>
-                  <h2 class="text-white mb-0">Growth</h2>
+                  <h2 class="text-white mb-0">Growth 
+                    
+                  </h2>
+                </div>
+                <div class="col text-right">
+                  <a class="btn btn-sm btn-light" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
+                      data-content="Global cumulative growth in cases since collection of data started. Defaulted to logarithmic y-scale">
+                      &nbsp;<i class="fas fa-info text-dark">&nbsp;</i>
+                    </a>
                 </div>
               </div>
             </div>
@@ -59,6 +65,12 @@
                 <div class="col">
                   <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Daily</h6>
                   <h2 class="mb-0">Daily Growth</h2>
+                </div>
+                <div class="col text-right">
+                  <a class="btn btn-sm btn-white" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
+                      data-content="Daily time series of cases. Bars can be stacked for relative adjacent comparison by toggling 'confirmed' cases.">
+                      &nbsp;<i class="fas fa-info">&nbsp;</i>
+                    </a>
                 </div>
               </div>
             </div>
