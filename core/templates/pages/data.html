@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Maps {% endblock title %}
+
+{% block content %}
+        
+    <div class="container-fluid pt-6 bg-secondary">
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins</a></li>
+            <li class="list-group-item"><a href="https://github.com/owid/covid-19-data/tree/master/public/data"></a>Our World In Data</li>
+            <li class="list-group-item"><a href="https://github.com/nytimes/covid-19-data"></a>New York Times</li>
+          </ul>
+      </div>
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+{% endblock javascripts %}
