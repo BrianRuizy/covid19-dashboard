@@ -81,7 +81,7 @@ Heroku app is already configured to this repository for *automatic deploys* from
 
 * [Django](https://www.djangoproject.com/) Django is a high-level Web framework that encourages rapid development and clean, pragmatic design.
 * [Plotly](https://plotly.com/) The leading front-end for ML & data science models in Python, R, and Julia.
-* [Appseed](https://appseed.us/) provides boiler-plate code for multipurpose applications, ready for deployment.
+* [Appseed](https://appseed.us/)
 * [Bootstrap](https://getbootstrap.com/)
 
 ## Data Sources

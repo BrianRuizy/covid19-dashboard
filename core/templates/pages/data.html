@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Data {% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid pt-6 bg-secondary">
+    <h2>Data</h2>
+    <p>Data sources used throughout the project.</p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a href="https://github.com/CSSEGISandData/COVID-19">Johns Hopkins</a></li>
+        <li class="list-group-item"><a href="https://github.com/owid/covid-19-data/tree/master/public/data">Our World In Data</a></li>
+        <li class="list-group-item"><a href="https://github.com/nytimes/covid-19-data">New York Times</a></li>
+    </ul>
+
+    {% include "includes/footer.html" %}
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+{% endblock javascripts %}
