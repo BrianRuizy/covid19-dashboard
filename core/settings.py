@@ -11,9 +11,9 @@ PROJECT_DIR = Path(__file__).parent
 SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False)
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ncov-dashboard.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ncov-dashboard.herokuapp.com', '.herokuapp.com']
 
 # Application definition
 
