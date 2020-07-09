@@ -34,9 +34,7 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-uppercase text-light ls-1 mb-1">Global | Cumulative</h6>
-                  <h2 class="text-white mb-0">Growth 
-                    
-                  </h2>
+                  <h2 class="text-white mb-0">Growth</h2>
                 </div>
                 <div class="col text-right">
                   <a class="btn btn-sm btn-light" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
@@ -102,7 +100,7 @@
             </div>
             <div class="table-responsive">
               <!-- cases table -->
-              <table class="table align-items-center table-flush sortable">
+              <table id="cases_table" class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Country</th>
@@ -111,16 +109,7 @@
                     <th scope="col">Deaths</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {% for i, row in global_cases.iterrows %}
-                  <tr>
-                      <td class="font-weight-bold" >{{ row.Country | truncatechars:14 }}</td>
-                      <td>{{ row.Confirmed | intcomma }}</td>
-                      <td>{{ row.Recovered | intcomma  }}</td>
-                      <td>{{ row.Deaths | intcomma }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
+                <tbody id="cases_table_body"></tbody>
               </table>
             </div>
           </div>
@@ -139,4 +128,56 @@
 $('.nav-item a').removeClass('active');
 $('.home-item a').addClass('active');
 </script>
+
+
+
+<script>
+window.addEventListener("load", function() {
+    load_cases();
+});
+
+function load_cases() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var cases_table_body = document.getElementById("cases_table_body");
+            var data = JSON.parse(this.response);
+
+            for (let row of data) {
+                let new_row = "<tr>";
+                new_row += "<td class='font-weight-bold'>" + row["Country"] + "</td>";
+                new_row += "<td>" + addCommas(row["Confirmed"]) + "</td>";
+                new_row += "<td>" + addCommas(row["Deaths"]) + "</td>";
+                new_row += "<td>" + addCommas(row["Recovered"]) + "</td>";
+                new_row += "</tr>";
+
+                cases_table_body.innerHTML += new_row;
+            }
+
+            var cases_table = document.getElementById("cases_table");
+            sorttable.makeSortable(cases_table);
+            cases_table.classList.add("sortable");
+        }
+    };
+
+    xhttp.open("GET", "cases");
+    xhttp.send();
+}
+
+function addCommas(input) {
+    var number_string = input.toString();
+    var result = "";
+
+    for (let i = 0; i < number_string.length; i++) {
+        result = number_string[number_string.length -1 - i] + result;
+
+        if ((i + 1) % 3 == 0 && i != number_string.length - 1) {
+            result = "," + result;
+        } 
+    }
+
+    return result;
+}
+</script>
+
 {% endblock javascripts %}

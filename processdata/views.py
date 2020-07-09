@@ -1,4 +1,3 @@
-
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.template import loader
@@ -12,9 +11,8 @@ def index(request):
     growth_dict = growth_plot()
     daily_growth = daily_growth_plot()
     world_map_dict = world_map()
-    cases_dict = global_cases()
 
-    context = dict(**growth_dict, **daily_growth, **cases_dict, **world_map_dict)
+    context = dict(**growth_dict, **daily_growth, **world_map_dict)
 
     return render(request, template_name='index.html', context=context)
 
@@ -56,9 +54,9 @@ def growth_plot():
     return {'growth_plot': plot_div}
 
 
-def global_cases():
+def global_cases(request):
     df = getdata.global_cases()
-    return {'global_cases': df}
+    return HttpResponse(df.to_json(orient='records'), content_type='application/json')
 
 
 def daily_growth_plot():
