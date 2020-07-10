@@ -8,11 +8,10 @@ from . import getdata, plots, maps
 
 
 def index(request): 
-    growth_dict = growth_plot()
     daily_growth = daily_growth_plot()
     world_map_dict = world_map()
 
-    context = dict(**growth_dict, **daily_growth, **world_map_dict)
+    context = dict(**daily_growth, **world_map_dict)
 
     return render(request, template_name='index.html', context=context)
 
@@ -49,11 +48,6 @@ def trends(request):
     return HttpResponse(data, content_type='application/json')
 
 
-def growth_plot():
-    plot_div = plots.total_growth()
-    return {'growth_plot': plot_div}
-
-
 def global_cases(request):
     df = getdata.global_cases()
     return HttpResponse(df.to_json(orient='records'), content_type='application/json')
@@ -72,3 +66,13 @@ def world_map():
 def mapspage(request):
     plot_div = maps.usa_map()
     return render(request, template_name='pages/maps.html', context={'usa_map': plot_div})
+
+
+def realtime_growth(request):
+    import pandas as pd
+    df = getdata.realtime_growth();
+
+    df.index = pd.to_datetime(df.index)
+    df.index = df.index.strftime('%Y-%m-%d')
+
+    return HttpResponse(df.to_json(orient='columns'), content_type='application/json')

@@ -45,11 +45,7 @@
               </div>
             </div>
             <div class="card-body plotly">
-              <div class="chart">
-                {% autoescape off %}
-                {{ growth_plot }}
-                {% endautoescape %}
-              </div>
+              <div id="realtime_growth_chart" class="chart" style="height: 310px;"></div>
             </div>
           </div>
         </div>
@@ -131,6 +127,7 @@ $('.home-item a').addClass('active');
 
 
 
+<!-- cases table -->
 <script>
 window.addEventListener("load", function() {
     load_cases();
@@ -178,6 +175,104 @@ function addCommas(input) {
 
     return result;
 }
+</script>
+
+<!-- Realtime Growth -->
+<script>
+var realtime_growth_chart = document.getElementById("realtime_growth_chart");
+
+var xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = JSON.parse(this.response);
+
+        var dates = Object.keys(data["Confirmed"]) 
+
+        var confirmed_trace = {
+            x: dates,
+            y: Object.values(data["Confirmed"]),
+            name: "Confirmed",
+            line: {
+                color: "#5E66EE",
+                width: 4
+            }
+        };
+
+        var recovered_trace = {
+            x: dates,
+            y: Object.values(data["Recovered"]),
+            name: "Recovered",
+            line: {
+                color: '#00C894',
+                width: 4
+            }
+        };
+
+        var deaths_trace = {
+            x: dates,
+            y: Object.values(data["Deaths"]),
+            name: "Deaths",
+            line: {
+                color: "#F5365C",
+                width: 4
+            }
+        };
+
+        var plot_data = [confirmed_trace, recovered_trace, deaths_trace];
+
+        var plot_layout = {
+            paper_bgcolor:'rgba(0,0,0,0)',
+            plot_bgcolor:'rgba(0,0,0,0)',
+            yaxis: {
+                automargin: true,
+                type: "log",
+                gridcolor: "#778888"
+            },
+            xaxis: {
+                automargin: true,
+                showgrid: false
+            },
+            template:'plotly_dark',
+            showlegend: false,
+            font: {color: '#ced4da'},
+            margin: {t:0, l:0, r:0, b:0},
+            hovermode: "closest",
+            updatemenus: [
+                {
+                    visible: true,
+                    type: "dropdown",
+                    buttons: [
+                        {
+                            method: "relayout",
+                            label: "Logarithmic",
+                            args: [{"yaxis.type": "log"}]
+                        },
+                        {
+                            method: "relayout",
+                            label: "Linear",
+                            args: [{"yaxis.type": "linear"}]
+                        }
+                    ],
+                    x: 0.05,
+                    xanchor: "auto",
+                    bgcolor: "#6236FF",
+                    bordercolor: "rgba(0,0,0,0)"
+                }
+            ]
+        };
+
+        var plot_config = {
+            responsive: true,
+            displayModeBar: false
+        }
+
+        Plotly.newPlot(realtime_growth_chart, plot_data, plot_layout, plot_config);
+    }
+};
+
+xhttp.open("GET", "realtime_growth");
+xhttp.send();
 </script>
 
 {% endblock javascripts %}

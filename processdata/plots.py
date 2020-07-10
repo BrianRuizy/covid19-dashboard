@@ -8,62 +8,6 @@ from plotly.offline import plot
 
 from . import getdata
 
-
-def total_growth():
-    """[summary] Plots cumulative growth in a logarithmic y-scale
-    Reference: https://plotly.com/python/line-and-scatter/
-    
-    Returns:
-        [plotly.graph_objs] -- [plot_div compatible with Django]
-    """
-    df = getdata.realtime_growth()
-    dates = pd.to_datetime(df.index)
-    layout = Layout(
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
-        yaxis_type='log',
-        xaxis_showgrid=False,
-        template='plotly_dark',
-        showlegend=False,
-        font=dict(color='#8898aa'),
-        height=310,
-        margin=dict(t=0, l=10, r=10, b=0)
-    )
-    fig = go.Figure(layout=layout)
-
-    fig.update_layout(
-        updatemenus=[
-            dict(
-                type='dropdown',
-                buttons=list([
-                    dict(
-                        args=[{'yaxis.type': 'log'}],
-                        label='Logarithmic',
-                        method='relayout'
-                    ),
-                    dict(
-                        args=[{'yaxis.type': 'linear'}],
-                        label='Linear',
-                        method='relayout'
-                    )
-                ]),
-                x=0.05,
-                xanchor='auto',
-                bgcolor='rgba(0,0,0,0)'
-            ),
-        ]
-    )
-    
-    confirmed_trace = go.Scatter(x=dates, y=df.Confirmed, name='Confirmed', mode='lines', line=dict(width=4))
-    recovered_trace = go.Scatter(x=dates, y=df.Recovered, name='Recovered', mode='lines', line=dict(width=4))
-    deaths_trace = go.Scatter(x=dates, y=df.Deaths, name='Deaths', mode='lines', line=dict(width=4), marker_color='#f5365c')
-
-    fig.add_traces([confirmed_trace, deaths_trace, recovered_trace])
-    plot_div = plot(fig, output_type='div', config={'displayModeBar': False})
-
-    return plot_div
-    
-
 def daily_growth():
     """[summary] Plots daily data of confirmations and deaths, as stacked bar
     Reference: https://plotly.com/python/bar-charts/
