@@ -142,6 +142,9 @@ function load_cases() {
 
             for (let row of data) {
                 let new_row = "<tr>";
+                if (row["Country"].length >= 15) {
+                    row["Country"] = row["Country"].substring(0, 15) + "…";
+                }
                 new_row += "<td class='font-weight-bold'>" + row["Country"] + "</td>";
                 new_row += "<td>" + addCommas(row["Confirmed"]) + "</td>";
                 new_row += "<td>" + addCommas(row["Deaths"]) + "</td>";
