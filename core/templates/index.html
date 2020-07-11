@@ -70,15 +70,11 @@
             </div>
 
             <div class="card-body plotly">
-              <div class="chart">
-                {% autoescape off %}
-                {{ daily_growth_plot }}
-                {% endautoescape %}
-              </div>
+              <div id="daily_growth_chart" class="chart"style="height: 310px;"></div>
             </div>
           </div>
         </div>
-        
+
         <div class="col-xl-4">
           <div class="card shadow">
             <div class="card-header bg-transparent">
@@ -142,9 +138,11 @@ function load_cases() {
 
             for (let row of data) {
                 let new_row = "<tr>";
+
                 if (row["Country"].length >= 15) {
                     row["Country"] = row["Country"].substring(0, 15) + "…";
                 }
+
                 new_row += "<td class='font-weight-bold'>" + row["Country"] + "</td>";
                 new_row += "<td>" + addCommas(row["Confirmed"]) + "</td>";
                 new_row += "<td>" + addCommas(row["Deaths"]) + "</td>";
@@ -180,7 +178,7 @@ function addCommas(input) {
 }
 </script>
 
-<!-- Realtime Growth -->
+<!-- realtime growth -->
 <script>
 var realtime_growth_chart = document.getElementById("realtime_growth_chart");
 
@@ -196,20 +194,14 @@ xhttp.onreadystatechange = function() {
             x: dates,
             y: Object.values(data["Confirmed"]),
             name: "Confirmed",
-            line: {
-                color: "#8965E0",
-                width: 4
-            }
+            line: {color: "#8965E0", width: 4}
         };
 
         var recovered_trace = {
             x: dates,
             y: Object.values(data["Recovered"]),
             name: "Recovered",
-            line: {
-                color: "#2DCE89",
-                width: 4
-            }
+            line: {color: "#2DCE89", width: 4}
         };
 
         var deaths_trace = {
@@ -227,16 +219,8 @@ xhttp.onreadystatechange = function() {
         var plot_layout = {
             paper_bgcolor:'rgba(0,0,0,0)',
             plot_bgcolor:'rgba(0,0,0,0)',
-            yaxis: {
-                automargin: true,
-                type: "log",
-                gridcolor: "#778888"
-            },
-            xaxis: {
-                automargin: true,
-                showgrid: false
-            },
-            template:'plotly_dark',
+            yaxis: {automargin: true, type: "log",gridcolor: "#778888"},
+            xaxis: {automargin: true, showgrid: false},
             showlegend: false,
             font: {color: '#ced4da'},
             margin: {t:0, l:0, r:0, b:0},
@@ -246,16 +230,8 @@ xhttp.onreadystatechange = function() {
                     visible: true,
                     type: "dropdown",
                     buttons: [
-                        {
-                            method: "relayout",
-                            label: "Logarithmic",
-                            args: [{"yaxis.type": "log"}]
-                        },
-                        {
-                            method: "relayout",
-                            label: "Linear",
-                            args: [{"yaxis.type": "linear"}]
-                        }
+                        {method: "relayout", label: "Logarithmic", args: [{"yaxis.type": "log"}]},
+                        {method: "relayout", label: "Linear", args: [{"yaxis.type": "linear"}]}
                     ],
                     x: 0.05,
                     xanchor: "auto",
@@ -265,16 +241,75 @@ xhttp.onreadystatechange = function() {
             ]
         };
 
-        var plot_config = {
-            responsive: true,
-            displayModeBar: false
-        }
+        var plot_config = {responsive: true, displayModeBar: false};
 
         Plotly.newPlot(realtime_growth_chart, plot_data, plot_layout, plot_config);
     }
 };
 
 xhttp.open("GET", "realtime_growth");
+xhttp.send();
+</script>
+
+<!-- daily growth -->
+<script>
+var xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = JSON.parse(this.response);
+
+        var dates = Object.keys(data["confirmed"]["World"]);
+        var confirmed = Object.values(data["confirmed"]["World"]);
+        var deaths = Object.values(data["deaths"]["World"]);
+
+        var plot_data = [
+            {
+                x: dates,
+                y: confirmed,
+                name: "Confirmed",
+                type: "bar",
+                visible: "legendonly",
+                marker: {color: "#6236FF"}
+            },
+
+            {
+                x: dates,
+                y: deaths,
+                name: "Deaths",
+                type: "bar",
+                marker: {color: "#F9345E"}
+            }
+        ];
+
+        var selectorOptions = {
+            buttons: [
+                {count: 7, label: "W", step: "day", stepmode: "backward"},
+                {count: 1, label: "M", step: "month", stepmode: "backward"},
+                {count: 3, label: "3M", step: "month", stepmode: "backward"},
+                {label: "T", step: "all"}
+            ]
+        };
+
+        var plot_layout = {
+            barmode: "stack",
+            paper_bgcolor:'rgba(0,0,0,0)',
+            plot_bgcolor:'rgba(0,0,0,0)',
+            margin: {t:0, l:0, r:0, b:0},
+            hovermode: "closest",
+            bargap: 0.5,
+            yaxis: {automargin: true, showgrid: false, zerolinecolor: "#FFFFFF"},
+            xaxis: {automargin: true, showgrid: false, rangeselector: selectorOptions},
+            legend: {x: 0.025, y: 1}
+        };
+
+        var plot_config = {responsive: true, displayModeBar: false};
+
+        Plotly.newPlot(document.getElementById("daily_growth_chart"), plot_data, plot_layout, plot_config);
+    }
+};
+
+xhttp.open("GET", "daily_growth");
 xhttp.send();
 </script>
 

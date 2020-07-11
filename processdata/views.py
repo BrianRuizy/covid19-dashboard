@@ -4,14 +4,13 @@ from django.template import loader
 
 import json
 
-from . import getdata, plots, maps
+from . import getdata, maps
 
 
 def index(request): 
-    daily_growth = daily_growth_plot()
     world_map_dict = world_map()
 
-    context = dict(**daily_growth, **world_map_dict)
+    context = dict(**world_map_dict)
 
     return render(request, template_name='index.html', context=context)
 
@@ -53,11 +52,6 @@ def global_cases(request):
     return HttpResponse(df.to_json(orient='records'), content_type='application/json')
 
 
-def daily_growth_plot():
-    plot_div = plots.daily_growth()
-    return {'daily_growth_plot': plot_div}
-
-
 def world_map():
     plot_div = maps.world_map()
     return {'world_map': plot_div}
@@ -76,3 +70,18 @@ def realtime_growth(request):
     df.index = df.index.strftime('%Y-%m-%d')
 
     return HttpResponse(df.to_json(orient='columns'), content_type='application/json')
+
+
+def daily_growth(request):
+    df_confirmed = getdata.daily_confirmed()[["date", "World"]]
+    df_deaths = getdata.daily_deaths()[["date", "World"]]
+
+    df_confirmed = df_confirmed.set_index("date")
+    df_deaths = df_deaths.set_index("date")
+
+    json_string = '{' + \
+        '"confirmed": ' + df_confirmed.to_json(orient='columns') + ',' + \
+        '"deaths": ' + df_deaths.to_json(orient='columns') + \
+    '}'
+
+    return HttpResponse(json_string, content_type='application/json')
