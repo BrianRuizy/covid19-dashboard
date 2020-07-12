@@ -270,15 +270,14 @@ xhttp.onreadystatechange = function() {
                 name: "Confirmed",
                 type: "bar",
                 visible: "legendonly",
-                marker: {color: "#6236FF"}
+                marker: {color: "#6236FF", line: {color: "#FFF", width: 1}}
             },
-
             {
                 x: dates,
                 y: deaths,
                 name: "Deaths",
                 type: "bar",
-                marker: {color: "#F9345E"}
+                marker: {color: "#F9345E", line: {color: "#FFF", width: 1}}
             }
         ];
 
@@ -297,7 +296,7 @@ xhttp.onreadystatechange = function() {
             plot_bgcolor:'rgba(0,0,0,0)',
             margin: {t:0, l:0, r:0, b:0},
             hovermode: "closest",
-            bargap: 0.5,
+            bargap: 0,
             yaxis: {automargin: true, showgrid: false, zerolinecolor: "#FFFFFF"},
             xaxis: {automargin: true, showgrid: false, rangeselector: selectorOptions},
             legend: {x: 0.025, y: 1}
