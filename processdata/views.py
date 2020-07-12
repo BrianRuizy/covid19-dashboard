@@ -36,9 +36,9 @@ def trends(request):
     df = getdata.percentage_trends()
 
     data = {
-        'confirmed_trend': int(df.Confirmed),
-        'deaths_trend': int(df.Deaths),
-        'recovered_trend': int(df.Recovered),
+        'confirmed_trend': int(round(df.Confirmed)),
+        'deaths_trend': int(round(df.Deaths)),
+        'recovered_trend': int(round(df.Recovered)),
         'death_rate_trend': float(df.Death_rate)
     }
 
@@ -55,11 +55,6 @@ def global_cases(request):
 def world_map():
     plot_div = maps.world_map()
     return {'world_map': plot_div}
-
-
-def mapspage(request):
-    plot_div = maps.usa_map()
-    return render(request, template_name='pages/maps.html', context={'usa_map': plot_div})
 
 
 def realtime_growth(request):
@@ -85,3 +80,8 @@ def daily_growth(request):
     '}'
 
     return HttpResponse(json_string, content_type='application/json')
+
+
+def mapspage(request):
+    plot_div = maps.usa_map()
+    return render(request, template_name='pages/maps.html', context={'usa_map': plot_div})
