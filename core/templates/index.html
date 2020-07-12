@@ -34,9 +34,7 @@
               <div class="row align-items-center">
                 <div class="col">
                   <h6 class="text-uppercase text-light ls-1 mb-1">Global | Cumulative</h6>
-                  <h2 class="text-white mb-0">Growth 
-                    
-                  </h2>
+                  <h2 class="text-white mb-0">Growth</h2>
                 </div>
                 <div class="col text-right">
                   <a class="btn btn-sm btn-light" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" title="Info"
@@ -47,11 +45,7 @@
               </div>
             </div>
             <div class="card-body plotly">
-              <div class="chart">
-                {% autoescape off %}
-                {{ growth_plot }}
-                {% endautoescape %}
-              </div>
+              <div id="realtime_growth_chart" class="chart" style="height: 310px;"></div>
             </div>
           </div>
         </div>
@@ -76,15 +70,11 @@
             </div>
 
             <div class="card-body plotly">
-              <div class="chart">
-                {% autoescape off %}
-                {{ daily_growth_plot }}
-                {% endautoescape %}
-              </div>
+              <div id="daily_growth_chart" class="chart"style="height: 310px;"></div>
             </div>
           </div>
         </div>
-        
+
         <div class="col-xl-4">
           <div class="card shadow">
             <div class="card-header bg-transparent">
@@ -102,7 +92,7 @@
             </div>
             <div class="table-responsive">
               <!-- cases table -->
-              <table class="table align-items-center table-flush sortable">
+              <table id="cases_table" class="table align-items-center table-flush">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Country</th>
@@ -111,16 +101,7 @@
                     <th scope="col">Deaths</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {% for i, row in global_cases.iterrows %}
-                  <tr>
-                      <td class="font-weight-bold" >{{ row.Country | truncatechars:14 }}</td>
-                      <td>{{ row.Confirmed | intcomma }}</td>
-                      <td>{{ row.Recovered | intcomma  }}</td>
-                      <td>{{ row.Deaths | intcomma }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
+                <tbody id="cases_table_body"></tbody>
               </table>
             </div>
           </div>
@@ -139,4 +120,6 @@
 $('.nav-item a').removeClass('active');
 $('.home-item a').addClass('active');
 </script>
+
+<script src="/static/assets/js/fetch-data.js"></script>
 {% endblock javascripts %}
