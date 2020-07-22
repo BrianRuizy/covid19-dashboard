@@ -7,26 +7,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
+
   <title>
     COVID-19 Dashboard | {% block title %} Open-Source analytics dashboard {% endblock %}
   </title>
 
   <!-- Favicon - loaded as static -->
-  <link href="{% static 'assets/img/brand/favicon.ico' %}" rel="icon" type="image/png">
-  
+  <link rel="icon" href="{% static 'assets/img/brand/favicon.ico' %}" type="image/png" media="print" onload="this.media='all'"/>
+  <noscript><link rel="icon" href="{% static 'assets/img/brand/favicon.ico' %}" type="image/png"/></noscript>
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"/></noscript>
+
   <!-- Icons -->
-  <script src="https://kit.fontawesome.com/189832a678.js" crossorigin="anonymous"></script>
-  <link href="/static/assets/css/style.css?v=1.1.0" rel="stylesheet" />
-  
+  <script defer src="https://kit.fontawesome.com/189832a678.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/static/assets/css/style.css?v=1.1.0" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="/static/assets/css/style.css?v=1.1.0"/></noscript>
+
   <!-- Plotly.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.54.6/plotly.min.js"></script>
-  
+
   <!-- Specific CSS goes HERE -->
   {% block stylesheets %}
-  
+
   {% endblock stylesheets %}
 
 </head>
