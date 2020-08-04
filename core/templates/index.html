@@ -16,11 +16,7 @@
         <div class="col-xl-8 mb-5 mb-xl-0">  <!-- Global interactive Plotly Mabpox -->
           <div class="card shadow fade-in-bottom">
             <div class="card-body plotly worldmap">
-              <div class="chart">
-                {% autoescape off %}
-                {{ world_map }}
-                {% endautoescape %}
-              </div>
+              <div id="world_map" class="chart" style="height: 100%;"></div>
             </div>
             <div style="position: absolute; padding:1.25rem 1.5rem;">
                 <h6 class="text-uppercase text-muted ls-1 mb-1">Global | Cumulative</h6>

@@ -8,11 +8,7 @@ from . import getdata, maps
 
 
 def index(request): 
-    world_map_dict = world_map()
-
-    context = dict(**world_map_dict)
-
-    return render(request, template_name='index.html', context=context)
+    return render(request, template_name='index.html')
 
 
 def report(request):
@@ -68,11 +64,11 @@ def realtime_growth(request):
 
 
 def daily_growth(request):
-    df_confirmed = getdata.daily_confirmed()[["date", "World"]]
-    df_deaths = getdata.daily_deaths()[["date", "World"]]
+    df_confirmed = getdata.daily_confirmed()[['date', 'World']]
+    df_deaths = getdata.daily_deaths()[['date', 'World']]
 
-    df_confirmed = df_confirmed.set_index("date")
-    df_deaths = df_deaths.set_index("date")
+    df_confirmed = df_confirmed.set_index('date')
+    df_deaths = df_deaths.set_index('date')
 
     json_string = '{' + \
         '"confirmed": ' + df_confirmed.to_json(orient='columns') + ',' + \
@@ -80,6 +76,12 @@ def daily_growth(request):
     '}'
 
     return HttpResponse(json_string, content_type='application/json')
+
+
+def daily_report(request):
+    df = getdata.daily_report()
+
+    return HttpResponse(df.to_json(orient='columns'), content_type='application/json')
 
 
 def mapspage(request):
