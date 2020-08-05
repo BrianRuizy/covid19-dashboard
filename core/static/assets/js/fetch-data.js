@@ -155,7 +155,7 @@ function load_realtime_growth_chart() {
             var plot_layout = {
                 paper_bgcolor:'rgba(0,0,0,0)',
                 plot_bgcolor:'rgba(0,0,0,0)',
-                yaxis: {automargin: true, type: "log",gridcolor: "#778888"},
+                yaxis: {automargin: true, type: "log", gridcolor: "#32325d"},
                 xaxis: {automargin: true, showgrid: false},
                 showlegend: false,
                 font: {color: '#ced4da'},
@@ -205,7 +205,7 @@ function load_daily_growth_chart() {
                     name: "Confirmed",
                     type: "bar",
                     visible: "legendonly",
-                    marker: {color: "#6236FF", line: {color: "#FFF", width: 1}}
+                    marker: {color: "#6236FF", line: {color: "#fff", width: 1}}
                 },
                 {
                     x: dates,
@@ -232,7 +232,7 @@ function load_daily_growth_chart() {
                 margin: {t:0, l:0, r:0, b:0},
                 hovermode: "closest",
                 bargap: 0,
-                yaxis: {automargin: true, showgrid: false, zerolinecolor: "#FFFFFF"},
+                yaxis: {automargin: true, showgrid: true, zerolinecolor: "#FFFFFF", gridcolor: "#e9ecef"},
                 xaxis: {automargin: true, showgrid: false, rangeselector: selectorOptions},
                 legend: {x: 0.025, y: 1}
             };
