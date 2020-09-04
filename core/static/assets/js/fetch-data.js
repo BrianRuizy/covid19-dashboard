@@ -125,11 +125,11 @@ function load_world_map() {
                             text: "Confirmed"
                         }
                     },
-                    colorscale: "Bluered",
+                    colorscale: [[0, "hsl(255, 95%, 26%)"], [0.5, "hsl(330, 60%, 50%)"], [1, "hsl(60, 100%, 60%)"]],
                     showscale: true,
                     size: Object.values(data["Confirmed"]),
                     sizemin: 0,
-                    sizeref: 1000,
+                    sizeref: 2000,
                     sizemode: "area"
                 }
             }];
