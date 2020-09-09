@@ -1,4 +1,6 @@
 # Covid 19 Interactive Dashboard
+###### Don't forget to leave a [star ⭐!](https://github.com/BrianRuizy/covid19-dashboard/stargazers?after=Y3Vyc29yOnYyOpO5MjAyMC0wNS0xM1QwOTo1MzoyMC0wNTowMADODRbOpg%3D%3D)
+
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/soroushchehresa/awesome-coronavirus#applications-and-bots)
 [![Gitter chat](https://img.shields.io/badge/Chat-Gitter-ff69b4.svg?label=Chat&logo=gitter)](https://gitter.im/ncov-dashboard/community)
 [![Build Status](https://img.shields.io/travis/TheAlgorithms/Python.svg?label=Travis%20CI&logo=travis)](https://travis-ci.com/github/BrianRuizy/covid19-dashboard)
