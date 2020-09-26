@@ -1,10 +1,13 @@
 window.addEventListener("load", function() {
     load_report();
     load_trends();
+    load_world_map();
     load_cases_table();
     load_realtime_growth_chart();
     load_daily_growth_chart();
 });
+
+
 
 function load_report() {
     var xhttp = new XMLHttpRequest();
@@ -23,6 +26,8 @@ function load_report() {
     xhttp.open("GET", "report");
     xhttp.send();
 }
+
+
 
 function load_trends() {
     var xhttp = new XMLHttpRequest();
@@ -83,6 +88,74 @@ function load_trends() {
     xhttp.send();
 }
 
+
+
+function load_world_map() {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.response);
+            hoverinfo = function() {
+                result = [];
+
+                for (let index = 0; index < Object.values(data["Combined_Key"]).length; index++) {
+                    result.push(
+                        "<b>" + Object.values(data["Combined_Key"])[index] + "</b><br>" +
+                        "Confirmed: " + Object.values(data["Confirmed"])[index] + "<br>" + 
+                        "Lat: " + Object.values(data["Lat"])[index] + "<br>" +
+                        "Long: " + Object.values(data["Long_"])[index]
+                    );
+                }
+
+                return result;
+            }();
+
+            var plot_data = [{
+                type: "scattermapbox",
+                lat: Object.values(data["Lat"]),
+                lon: Object.values(data["Long_"]),
+                hovertext: hoverinfo,
+                hoverinfo: "text",
+                marker: {
+                    color: Object.values(data["Confirmed"]),
+                    colorbar: {
+                        outlinewidth: 0,
+                        title: {
+                            text: "Confirmed"
+                        }
+                    },
+                    colorscale: [[0, "hsl(255, 95%, 26%)"], [0.5, "hsl(330, 60%, 50%)"], [1, "hsl(60, 100%, 60%)"]],
+                    showscale: true,
+                    size: Object.values(data["Confirmed"]),
+                    sizemin: 0,
+                    sizeref: 2000,
+                    sizemode: "area"
+                }
+            }];
+
+            var plot_layout = {
+                margin: {t:0, l:0, r:0, b:0},
+                paper_bgcolor:'rgba(0,0,0,0)',
+                mapbox: {
+                    style: "carto-positron",
+                    center: {lat: 20, lon: -20},
+                    zoom: 1
+                }
+            };
+
+            var plot_config = {responsive: true, displayModeBar: false}
+
+            Plotly.newPlot(document.getElementById("world_map"), plot_data, plot_layout, plot_config);
+        }
+    };
+
+    xhttp.open("GET", "daily_report");
+    xhttp.send();
+}
+
+
+
 function load_cases_table() {
     var xhttp = new XMLHttpRequest();
 
@@ -116,6 +189,8 @@ function load_cases_table() {
     xhttp.open("GET", "cases");
     xhttp.send();
 }
+
+
 
 function load_realtime_growth_chart() {
     var xhttp = new XMLHttpRequest();
@@ -187,6 +262,8 @@ function load_realtime_growth_chart() {
     xhttp.send();
 }
 
+
+
 function load_daily_growth_chart() {
     var xhttp = new XMLHttpRequest();
 
@@ -246,6 +323,8 @@ function load_daily_growth_chart() {
     xhttp.open("GET", "daily_growth");
     xhttp.send();
 }
+
+
 
 function addCommas(input) {
     var number_string = input.toString();
