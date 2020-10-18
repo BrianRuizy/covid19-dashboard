@@ -176,6 +176,7 @@ function load_cases_table() {
                 new_row += "<td>" + addCommas(row["Confirmed"]) + "</td>";
                 new_row += "<td>" + addCommas(row["Deaths"]) + "</td>";
                 new_row += "<td>" + addCommas(row["Recovered"]) + "</td>";
+                new_row += "<td>" + (row["Death Rate"]) + "</td>";
                 new_row += "</tr>";
 
                 cases_table_body.innerHTML += new_row;
