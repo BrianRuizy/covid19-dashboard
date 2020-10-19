@@ -129,11 +129,21 @@ def global_cases():
     Returns:
         [pd.DataFrame]
     """
-    df = daily_report()[['Country_Region', 'Confirmed', 'Deaths', 'Recovered', 'Active']]
+    df = daily_report()[['Country_Region', 'Confirmed', 'Recovered', 'Deaths', 'Active']]
     df.rename(columns={'Country_Region':'Country'}, inplace=True) 
     df = df.groupby('Country', as_index=False).sum()  # Dataframe mapper, combines rows where country value is the same
     df.sort_values(by=['Confirmed'], ascending=False, inplace=True)
     
+    for index, row in df.iterrows():
+        countryCases = int(row['Confirmed'])
+        countryDeaths = int(row['Deaths'])
+        if(countryCases == 0):
+            deathRateFormatted = format(0, '.2f')
+            df.loc[index, 'Death Rate'] = deathRateFormatted
+        else:
+            deathRate = float(countryDeaths / countryCases)*100
+            deathRateFormatted = format(deathRate, '.2f')
+            df.loc[index, 'Death Rate'] = deathRateFormatted
     return df
 
 def usa_counties():
