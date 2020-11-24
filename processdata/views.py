@@ -81,8 +81,6 @@ def daily_growth(request):
 def daily_report(request):
     df = getdata.daily_report()
 
-    print(df)
-
     df.drop(['FIPS', 'Admin2', 'Province_State', 'Country_Region', 'Last_Update', 'Deaths', 'Recovered', 'Active', 'Incident_Rate', 'Case_Fatality_Ratio'], axis=1, inplace=True)
 
     return HttpResponse(df.to_json(orient='columns'), content_type='application/json')
