@@ -79,6 +79,8 @@ def daily_growth(request):
 
 
 def daily_report(request):
+    print("dingdong")
+
     df = getdata.daily_report()
 
     print(df)
