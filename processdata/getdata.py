@@ -37,13 +37,13 @@ def daily_report(date_string=None):
 def daily_confirmed():
     # returns the daily reported cases for respective date, 
     # segmented globally and by country
-    df = pd.read_csv('https://covid.ourworldindata.org/data/ecdc/new_cases.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/jhu/new_cases.csv')
     return df
 
 
 def daily_deaths():
     # returns the daily reported deaths for respective date
-    df = pd.read_csv('https://covid.ourworldindata.org/data/ecdc/new_deaths.csv')
+    df = pd.read_csv('https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/jhu/new_deaths.csv')
     return df
 
 
