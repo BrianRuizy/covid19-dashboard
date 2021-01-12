@@ -8218,7 +8218,7 @@ button.bg-darker:focus {
   box-shadow: 0 0 0.5rem rgba(136, 152, 170, 0.075) !important;
 }
 
-.shadow, img {
+.shadow {
   box-shadow: 
   0 2.8px 0.2px rgba(0, 0, 0, 0.005), 
   0 6.7px 5.3px rgba(0, 0, 0, 0.004), 
@@ -16860,7 +16860,7 @@ textarea[resize="horizontal"] {
 .navbar-vertical .navbar-brand-img,
 .navbar-vertical .navbar-brand>img {
   max-width: 100%;
-  max-height: 2rem;
+  max-height: 3.5rem;
 }
 
 @media (min-width: 768px) {
@@ -17043,7 +17043,7 @@ textarea[resize="horizontal"] {
 }
 
 .navbar-vertical.navbar-expand-xs .navbar-brand-img {
-  max-height: 2.5rem;
+  max-height: 3.5rem;
 }
 
 .navbar-vertical.navbar-expand-xs .navbar-user {
@@ -17152,7 +17152,7 @@ textarea[resize="horizontal"] {
   }
 
   .navbar-vertical.navbar-expand-sm .navbar-brand-img {
-    max-height: 2.5rem;
+    max-height: 3.5rem;
   }
 
   .navbar-vertical.navbar-expand-sm .navbar-user {
@@ -17262,7 +17262,7 @@ textarea[resize="horizontal"] {
   }
 
   .navbar-vertical.navbar-expand-md .navbar-brand-img {
-    max-height: 2.5rem;
+    max-height: 3.5rem;
   }
 
   .navbar-vertical.navbar-expand-md .navbar-user {
@@ -17372,7 +17372,7 @@ textarea[resize="horizontal"] {
   }
 
   .navbar-vertical.navbar-expand-lg .navbar-brand-img {
-    max-height: 2.5rem;
+    max-height: 3.5rem;
   }
 
   .navbar-vertical.navbar-expand-lg .navbar-user {
@@ -17482,7 +17482,7 @@ textarea[resize="horizontal"] {
   }
 
   .navbar-vertical.navbar-expand-xl .navbar-brand-img {
-    max-height: 2.5rem;
+    max-height: 3.5rem;
   }
 
   .navbar-vertical.navbar-expand-xl .navbar-user {
@@ -17653,7 +17653,7 @@ textarea[resize="horizontal"] {
   }
 
   .navbar-collapse .collapse-brand img {
-    height: 36px;
+    height: 3.5rem;
   }
 
   .navbar-collapse .collapse-close {
