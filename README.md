@@ -7,9 +7,9 @@
 [![Made with Pthon](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 [![read blog](https://brianruizy.com/favicons/favicon-16x16.png)](https://brianruizy.com/how-to-create-a-covid-dashboard-web-application-with-python) 
-Read [blog](https://brianruizy.com/how-to-create-a-covid-dashboard-web-application-with-python   ) post my website, covering how we built this! And, don't forget to leave a [star ⭐!](https://github.com/BrianRuizy/covid19-dashboard/stargazers?after=Y3Vyc29yOnYyOpO5MjAyMC0wNS0xM1QwOTo1MzoyMC0wNTowMADODRbOpg%3D%3D)
+Read [blog](https://brianruizy.com/how-to-create-a-covid-dashboard-web-application-with-python) post my website, covering how we built this! And, don't forget to leave a [star ⭐!](https://github.com/BrianRuizy/covid19-dashboard/stargazers?after=Y3Vyc29yOnYyOpO5MjAyMC0wNS0xM1QwOTo1MzoyMC0wNTowMADODRbOpg%3D%3D)
 
-![Screenshot from 2021-08-24 17-56-14](https://user-images.githubusercontent.com/23439187/130700643-df2ee651-13e4-4ca4-b14b-2cea30c32d97.png)
+[![read blog](https://user-images.githubusercontent.com/23439187/130700643-df2ee651-13e4-4ca4-b14b-2cea30c32d97.png)](https://brianruizy.com/how-to-create-a-covid-dashboard-web-application-with-python) 
 ![covid-dashboard-3-devices](https://user-images.githubusercontent.com/23439187/115303139-de94f580-a128-11eb-9028-3144d808ac00.png) 
 
 ## About
