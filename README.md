@@ -7,7 +7,7 @@
 [![Made with Pthon](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 
 [![read blog](https://brianruizy.com/favicons/favicon-16x16.png)](https://brianruizy.com/how-to-create-a-covid-dashboard-web-application-with-python) 
-Read [blog](https://brianruizy.com/how-to-create-a-covid-dashboard-web-application-with-python) post my website, covering how we built this! And, don't forget to leave a [star ⭐!](https://github.com/BrianRuizy/covid19-dashboard/stargazers?after=Y3Vyc29yOnYyOpO5MjAyMC0wNS0xM1QwOTo1MzoyMC0wNTowMADODRbOpg%3D%3D)
+Read [blog](https://brianruizy.com/how-to-create-a-covid-dashboard-web-application-with-python) post on my website, covering how we built this! And, don't forget to leave a [star ⭐!](https://github.com/BrianRuizy/covid19-dashboard/stargazers?after=Y3Vyc29yOnYyOpO5MjAyMC0wNS0xM1QwOTo1MzoyMC0wNTowMADODRbOpg%3D%3D)
 
 [![read blog](https://user-images.githubusercontent.com/23439187/130700643-df2ee651-13e4-4ca4-b14b-2cea30c32d97.png)](https://brianruizy.com/how-to-create-a-covid-dashboard-web-application-with-python) 
 ![covid-dashboard-3-devices](https://user-images.githubusercontent.com/23439187/115303139-de94f580-a128-11eb-9028-3144d808ac00.png) 
@@ -18,10 +18,6 @@ Read [blog](https://brianruizy.com/how-to-create-a-covid-dashboard-web-applicati
 > At this time, there are no specific vaccines or treatments for COVID-19. The best way to prevent and slow down transmission is be **well informed** about the COVID-19 virus. [who.int](https://www.who.int/health-topics/coronavirus#tab=tab_1)
 
 The goal of this project is not to build *just another dashboard*. But, to focus on collaborative plot ideas, and a mobile friendly UI/UX. Feel free to open an issue requesting a type of plot, table, or any feature for that matter. Join the repo's [Gitter chat](https://gitter.im/ncov-dashboard/community?utm_source=share-link&utm_medium=link&utm_campaign=share-link).
-
-## Contributors
-
-[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/images/0)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/links/0)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/images/1)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/links/1)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/images/2)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/links/2)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/images/3)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/links/3)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/images/4)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/links/4)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/images/5)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/links/5)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/images/6)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/links/6)[![](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/images/7)](https://sourcerer.io/fame/BrianRuizy/BrianRuizy/covid-19-dashboard/links/7)
 
 ## Getting Started
 
