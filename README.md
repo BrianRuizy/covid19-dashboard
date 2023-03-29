@@ -1,5 +1,3 @@
-# ⚠️ HEROKU IS NO LONGER FREE, will re-redeploy on other platform
-
 # Covid 19 Interactive Dashboard 
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/soroushchehresa/awesome-coronavirus#applications-and-bots)
